@@ -45,4 +45,17 @@ public class MemberEntity {
 
         return memberEntity;
     }
+    public static MemberEntity toUpdateMemberEntity(MemberDTO memberDTO){
+        MemberEntity memberEntity=new MemberEntity();
+        memberEntity.setId(memberDTO.getId());
+        memberEntity.setMemberEmail(memberDTO.getMemberEmail());
+        memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+        memberEntity.setMemberName(memberDTO.getMemberName());
+        // member에 각 속성을 set하기 위해 memberFormDto에 추가해야할 내용
+        memberEntity.setPostCode(memberDTO.getPostCode());
+        memberEntity.setStreetAdr(memberDTO.getStreetAdr());
+        memberEntity.setDetailAdr(memberDTO.getDetailAdr());
+
+        return memberEntity;
+    }
 }

@@ -31,6 +31,9 @@ public class MemberDTO {
         memberDTO.setMemberEmail(memberEntity.getMemberEmail());
         memberDTO.setMemberPassword(memberEntity.getMemberPassword());
         memberDTO.setMemberName(memberEntity.getMemberName());
+        memberDTO.setPostCode(memberEntity.getPostCode());
+        memberDTO.setStreetAdr(memberEntity.getStreetAdr());
+        memberDTO.setDetailAdr(memberEntity.getDetailAdr());
         return memberDTO;
     }
 }

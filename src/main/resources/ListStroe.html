@@ -3,40 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <title>List of Stores</title>
+    <style>
+        /* 모든 요소의 기본 여백 및 패딩을 0으로 설정하고 박스 크기 계산을 일정하게 유지 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-    h1 {
-    text-align : center;
-    }
+        /* body 요소의 기본 배경색을 흰색으로 설정 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+        }
 
-    .top {
-    float : right;
-    }
+        /* header 요소 스타일 설정 */
+        header {
+            position: relative;
+            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+            padding: 10px;
+        }
 
-    .left {
-    float : left;
-    }
+        /* 오른쪽 상단 버튼 그룹 스타일 설정 */
+        .top-right-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-    .right {
-    float : right;
-    }
+        /* 제목 스타일 설정 */
+        h1 {
+            text-align: center;
+            margin: 20px 0; /* 상하 여백 설정 */
+        }
 
+        /* main 요소 스타일 설정 */
+        main {
+            padding: 20px;
+            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+        }
 
-  </style>
+        /* main 버튼 그룹 스타일 설정 */
+        .main-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        /* footer 요소 스타일 설정 */
+        footer {
+            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            height: 100px; /* 높이를 100px로 설정 */
+            width: 100%; /* 너비를 100%로 설정 */
+        }
+
+        /* footer 정보 텍스트 스타일 설정 */
+        .footer-info {
+            margin: 0;
+            padding: 5px;
+        }
+    </style>
 </head>
-
 <body>
-<button class="top" id="info">내정보수정</button>
-<button class="top" id="logout">로그아웃</button>
-<br>
+<header>
+    <div class="top-right-buttons">
+        <button id="info">내정보수정</button>
+        <button id="logout">로그아웃</button>
+    </div>
+    <h1>Make A Wish</h1>
+</header>
 
-<h1>케이크</h1>
-<br>
+<main>
+    <div class="main-buttons">
+        <div>
+            <label><input type="radio" name="sort" id="near"> 가까운순</label>
+            <label><input type="radio" name="sort" id="review"> 리뷰순</label>
+        </div>
+        <div>
+            <button id="reg" onclick="location.href='Registration.html'">가게 관리</button>
+        </div>
+    </div>
+</main>
 
-<button class="left" id="near">가까운순</button>
-<button class="left" id="review">리뷰순</button>
-
-<button class="right" id="reg" onclick="location.href='Registration.html'">내가게 관리</button>
-<button class="right" id="good">찜 목록</button>
+<footer>
+    <p class="footer-info">Name: Make A Wish</p>
+    <p class="footer-info">Team: MangoSiru</p>
+    <p class="footer-info">Email: mangosiru@cbnu.ac.kr</p>
+    <p class="footer-info">Address: 1 Chungdae-ro, Seowon-gu, Cheongju, Chungbuk National University</p>
+</footer>
 </body>
 </html>

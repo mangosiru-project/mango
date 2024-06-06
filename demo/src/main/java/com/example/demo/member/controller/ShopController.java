@@ -27,7 +27,7 @@ public class ShopController {
         System.out.println("shopDTO = " + shopDTO);
         shopService.shopSave(shopDTO);
 
-        return "main";
+        return "ListStore";
     }
 
 }

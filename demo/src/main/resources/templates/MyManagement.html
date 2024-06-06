@@ -5,28 +5,48 @@
     <title>My Store Management</title>
 
     <style>
-        h1 {
-            text-align : center;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
 
-        div {
-            text-align : center;
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            margin: 10px;
         }
     </style>
 </head>
 
 <body>
-<h1>내 가게 관리</h1>
+<header>
+    <h1>내 가게 관리</h1>
+</header>
+<main>
+    <div>
+        <button onclick="location.href='OrderStatus.html'">주문 현황</button>
+        <br><br>
 
-<div>
-    <button onclick="location.href='OrderStatus.html'">주문 현황</button>
-    <br><br>
+        <button onclick="location.href='Registration.html'">가게 페이지 수정</button>
+        <br><br>
 
-    <button onclick="location.href='Registration.html'">가게 페이지 수정</button>
-    <br><br>
-
-    <button>가게페이지</button>
-    <br><br>
-</div>
+        <button>가게페이지</button>
+        <br><br>
+    </div>
+</main>
 </body>
 </html>

@@ -40,7 +40,7 @@ public class MemberController {
         if(loginResult!=null){
             //login 성공
             session.setAttribute("loginName", loginResult.getMemberName());
-            return "main";
+            return "ListStore";
 
         }
         else {
@@ -59,7 +59,7 @@ public class MemberController {
     @PostMapping("/member/update")
     public String update(@ModelAttribute MemberDTO memberDTO){
         memberService.update(memberDTO);
-        return "main";
+        return "ListStore";
     }
 
     @GetMapping("/member/logout")

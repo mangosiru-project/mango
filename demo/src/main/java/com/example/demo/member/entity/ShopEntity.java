@@ -31,6 +31,7 @@ public class ShopEntity extends BaseEntity{
 
     public static ShopEntity toShopSaveEntity(ShopDTO shopDTO){
         ShopEntity shopEntity = new ShopEntity();
+        shopEntity.setId(shopDTO.getId());
         shopEntity.setStorename(shopDTO.getStorename());
         shopEntity.setStoreplace(shopDTO.getStoreplace());
         shopEntity.setStoreintro(shopDTO.getStoreintro());
@@ -38,6 +39,7 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
         return shopEntity;
     }
+
 
 
 }

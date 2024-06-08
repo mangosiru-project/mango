@@ -1,6 +1,8 @@
 package com.example.demo.member.controller;
 import com.example.demo.member.dto.MemberDTO;
+import com.example.demo.member.dto.ShopDTO;
 import com.example.demo.member.service.MemberService;
+import com.example.demo.member.service.ShopService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -10,11 +12,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class MemberController {
     //생성자 주입
     private final MemberService memberService;
+    private final ShopService shopService;
 
     //회원가입 페이지 출력요청
     @GetMapping("/member/save")
@@ -30,16 +35,22 @@ public class MemberController {
 
         return "login";
     }
+    private void addCommonAttributes(Model model) {
+        List<ShopDTO> shopDTOList;
+        shopDTOList = shopService.findAll();
+        model.addAttribute("shopList", shopDTOList);
+    }
     @GetMapping("/member/login")
     public String loginForm(){
         return "login";
     }
     @PostMapping("/member/login")
-    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session){
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model){
         MemberDTO loginResult = memberService.login(memberDTO);
         if(loginResult!=null){
             //login 성공
             session.setAttribute("loginName", loginResult.getMemberName());
+            addCommonAttributes(model);
             return "ListStore";
 
         }

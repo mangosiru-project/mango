@@ -3,79 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>List of Stores</title>
-    <style>
-        /* 모든 요소의 기본 여백 및 패딩을 0으로 설정하고 박스 크기 계산을 일정하게 유지 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* body 요소의 기본 배경색을 흰색으로 설정 */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
-        }
-
-        /* header 요소 스타일 설정 */
-        header {
-            position: relative;
-            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
-            padding: 10px;
-        }
-
-        /* 오른쪽 상단 버튼 그룹 스타일 설정 */
-        .top-right-buttons {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        /* 제목 스타일 설정 */
-        h1 {
-            text-align: center;
-            margin: 20px 0; /* 상하 여백 설정 */
-        }
-
-        /* main 요소 스타일 설정 */
-        main {
-            padding: 20px;
-            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
-        }
-
-        /* main 버튼 그룹 스타일 설정 */
-        .main-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        /* footer 요소 스타일 설정 */
-        footer {
-            background-color: #ffffff; /* 배경색을 흰색으로 설정 */
-            padding: 20px;
-            text-align: center;
-            margin-top: 20px;
-            height: 100px; /* 높이를 100px로 설정 */
-            width: 100%; /* 너비를 100%로 설정 */
-        }
-
-        /* footer 정보 텍스트 스타일 설정 */
-        .footer-info {
-            margin: 0;
-            padding: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="store_list.css">
 </head>
 <body>
 <header>
     <div class="top-right-buttons">
         <button onclick="location.href='/member/update'" id="info">내정보수정</button>
-        <button onclick="location.href='/member/logout'"id="logout">로그아웃</button>
+        <button onclick="location.href='/member/logout'" id="logout">로그아웃</button>
     </div>
     <h1>Make A Wish</h1>
 </header>
-
 <main>
     <div class="main-buttons">
         <div>
@@ -86,21 +23,21 @@
             <button id="reg" onclick="location.href='/shop/manage'">가게 관리</button>
         </div>
     </div>
+    <table>
+        <tr>
+            <th>순서</th>
+            <th>가게이름</th>
+            <th>가게소개</th>
+            <th>가게위치</th>
+        </tr>
+        <tr th:each="shop: ${shopList}">
+            <td th:text="${shop.id}"></td>
+            <td><a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}"></a></td>
+            <td th:text="${shop.storeintro}"></td>
+            <td th:text="${shop.storeplace}"></td>
+        </tr>
+    </table>
 </main>
-<table>
-    <tr>
-        <th>순서</th>
-        <th>가게이름</th>
-        <th>가게소개</th>
-        <th>가게위치</th>
-    </tr>
-    <tr th:each="shop: ${shopList}">
-        <td th:text="${shop.id}"></td>
-        <td><a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}" ></a></td>
-        <td th:text="${shop.storeintro}"></td>
-        <td th:text="${shop.storeplace}"></td>
-    </tr>
-</table>
 <footer>
     <p class="footer-info">Name: Make A Wish</p>
     <p class="footer-info">Team: MangoSiru</p>

@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -16,23 +20,45 @@ body {
 
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 20px;
-    background-color: #ffffff;
+    padding: 40px 20px;  /* 패딩 증가 */
+    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
+    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
     border-bottom: 1px solid #ccc;
     position: relative;
 }
 
 .top-right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;  /* 상단 여백 증가 */
+    right: 20px; /* 오른쪽으로 정렬 */
 }
 
-h1 {
-    margin: 0;
+header button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 15px;  /* 패딩 증가 */
+    border-radius: 5px;
+    font-size: 14px;  /* 텍스트 크기 줄이기 */
+    cursor: pointer;
+    margin: 0 5px;  /* 버튼 간 간격 추가 */
+}
+
+header button:hover {
+    background-color: #0056b3;
+}
+
+header h2 {
+    margin-top: 20px; /* 위로 올려서 버튼과 간격 확보 */
+    margin-bottom: 5px; /* 텍스트 아래에 여백 추가 */
+    font-size: 36px;  /* 텍스트 크기 증가 */
 }
 
 main {
@@ -44,8 +70,10 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    margin-bottom: 20px; /* 메인과 푸터 사이에 공간 추가 */
     width: 90%;
     max-width: 800px;
+    flex: 1;  /* 메인 컨텐츠가 남은 공간을 차지하도록 설정 */
 }
 
 .main-buttons {
@@ -78,7 +106,8 @@ table {
 th, td {
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: left;
+    text-align: center;  /* 글씨 가운데 정렬 */
+    vertical-align: middle;  /* 세로 가운데 정렬 */
 }
 
 th {
@@ -86,11 +115,12 @@ th {
 }
 
 footer {
-    background-color: #ffffff;
+    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
+    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
     padding: 20px;
     text-align: center;
-    margin-top: 20px;
     width: 100%;
+    margin-top: auto;  /* 푸터를 페이지 하단에 고정 */
 }
 
 .footer-info {

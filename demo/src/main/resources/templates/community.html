@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>커뮤니티</title>
@@ -11,7 +11,26 @@
     <h1>커뮤니티</h1>
 </header>
 
+<button onclick="location.href='/board/save'">글 작성하기</button>
 
+<table>
+    <tr>
+        <th>id</th>
+        <th>title</th>
+        <th>title(||쓰지 않은 경우)</th>
+        <th>writer</th>
+        <th>date</th>
+        <th>hits</th>
+    </tr>
+    <tr th:each="board: ${boardList}">
+        <td th:text="${board.id}"></td>
+        <td><a th:href="@{|/board/${board.id}|}" th:text="${board.boardTitle}"></a></td>
+        <td><a th:href="@{/board/${board.id}}" th:text="${board.boardTitle}"></a></td>
+        <td th:text="${board.boardWriter}"></td>
+        <td th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm:ss')}"></td>
+        <td th:text="${board.boardHits}"></td>
+    </tr>
+</table>
 
 <footer>
     <p class="footer-info">Name: Make A Wish</p>

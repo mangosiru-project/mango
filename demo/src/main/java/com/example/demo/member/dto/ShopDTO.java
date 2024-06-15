@@ -25,6 +25,7 @@ public class ShopDTO {
     private String storeintro;
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
+    private String shopPass;
 
 
     public static ShopDTO toShopDTO(ShopEntity shopEntity){
@@ -38,7 +39,7 @@ public class ShopDTO {
         shopDTO.setDetailAdr(shopEntity.getDetailAdr());
         shopDTO.setCreatedTime(shopEntity.getCreatedTime());
         shopDTO.setUpdatedTime(shopEntity.getUpdatedTime());
-
+        shopDTO.setShopPass(shopEntity.getShopPass());
         return shopDTO;
     }
 

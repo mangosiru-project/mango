@@ -16,6 +16,11 @@ import java.util.Optional;
 public class ShopService {
     private final ShopRepository shopRepository;
 
+    public ShopDTO update(ShopDTO shopDTO) {
+        ShopEntity shopEntity=ShopEntity.toupdateEntity(shopDTO);
+        shopRepository.save(shopEntity);
+        return findById(shopDTO.getId());
+    }
 
 
     public void shopSave(ShopDTO shopDTO){

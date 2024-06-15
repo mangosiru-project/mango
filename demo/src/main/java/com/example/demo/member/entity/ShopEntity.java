@@ -21,6 +21,8 @@ public class ShopEntity extends BaseEntity{
     @Column(length=20, nullable=false)
     private String storename;
     @Column
+    private String shopPass;
+    @Column
     //주소
     private String postCode;
     @Column
@@ -45,10 +47,23 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setStoreintro(shopDTO.getStoreintro());
         shopEntity.setCreatedTime(shopDTO.getCreatedTime());
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
-
+        shopEntity.setShopPass(shopDTO.getShopPass());
         return shopEntity;
     }
 
 
-
+    public static ShopEntity toupdateEntity(ShopDTO shopDTO) {
+        ShopEntity shopEntity = new ShopEntity();
+        shopEntity.setId(shopDTO.getId());
+        shopEntity.setId(shopDTO.getId());
+        shopEntity.setStorename(shopDTO.getStorename());
+        shopEntity.setPostCode(shopDTO.getPostCode());
+        shopEntity.setDetailAdr(shopDTO.getDetailAdr());
+        shopEntity.setStreetAdr(shopDTO.getStreetAdr());
+        shopEntity.setStoreintro(shopDTO.getStoreintro());
+        shopEntity.setCreatedTime(shopDTO.getCreatedTime());
+        shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
+        shopEntity.setShopPass(shopDTO.getShopPass());
+        return shopEntity;
+    }
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopupdate</title>
+</head>
+<body>
+<form action="/shop/update" method="post" name="updateForm">
+    <input type="hidden" name="id" th:value="${shopUpdate.id}">
+    가게이름: <input type="text" name="storename" th:value="${shopUpdate.storename}"> <br>
+    pass: <input type="text" name="shopPass" id="shopPass"> <br>
+    가게주소: <input type="text" id="sample4_postcode" th:value="${shopUpdate.postCode}"name=postCode placeholder="우편번호">
+    <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+    <input type="text" id="sample4_roadAddress" th:value="${shopUpdate.streetAdr}" name="streetAdr" placeholder="도로명주소">
+    가게소개: <textarea name="storeintro" cols="30" rows="10" th:text="${shopUpdate.storeintro}"></textarea> <br>
+     <input type="button" value="가게수정" onclick="shopUpdate()">
+</form>
+<script th:inline="javascript">
+    const shopUpdate = () => {
+        const pass = [[${shopUpdate.shopPass}]];
+        const inputPass = document.getElementById("shopPass").value;
+        if (pass == inputPass) {
+            document.updateForm.submit();
+        } else {
+            alert("비밀번호가 일치하지 않습니다!");
+        }
+    }
+</script>
+</body>

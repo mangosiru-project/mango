@@ -35,6 +35,8 @@ public class ShopEntity extends BaseEntity{
     private LocalDateTime createdTime;
     @Column
     private LocalDateTime updatedTime;
+    @Column(length=50, nullable=false)
+    private String memberName;  // 작성자 ID 필드 추가
 
 
     public static ShopEntity toShopSaveEntity(ShopDTO shopDTO){
@@ -48,6 +50,7 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setCreatedTime(shopDTO.getCreatedTime());
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
         shopEntity.setShopPass(shopDTO.getShopPass());
+        shopEntity.setMemberName(shopDTO.getMemberName());  // 작성자 ID 설정
         return shopEntity;
     }
 
@@ -64,6 +67,21 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setCreatedTime(shopDTO.getCreatedTime());
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
         shopEntity.setShopPass(shopDTO.getShopPass());
+        shopEntity.setMemberName(shopDTO.getMemberName());  // 작성자 ID 설정
         return shopEntity;
+    }
+    public static ShopDTO toShopDTO(ShopEntity shopEntity) {
+        ShopDTO shopDTO = new ShopDTO();
+        shopDTO.setId(shopEntity.getId());
+        shopDTO.setStorename(shopEntity.getStorename());
+        shopDTO.setPostCode(shopEntity.getPostCode());
+        shopDTO.setDetailAdr(shopEntity.getDetailAdr());
+        shopDTO.setStreetAdr(shopEntity.getStreetAdr());
+        shopDTO.setStoreintro(shopEntity.getStoreintro());
+        shopDTO.setCreatedTime(shopEntity.getCreatedTime());
+        shopDTO.setUpdatedTime(shopEntity.getUpdatedTime());
+        shopDTO.setShopPass(shopEntity.getShopPass());
+        shopDTO.setMemberName(shopEntity.getMemberName());  // 작성자 ID 설정
+        return shopDTO;
     }
 }

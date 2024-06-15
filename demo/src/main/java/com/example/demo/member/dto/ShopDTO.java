@@ -26,6 +26,7 @@ public class ShopDTO {
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
     private String shopPass;
+    private String memberName;  // 작성자 ID 필드 추가
 
 
     public static ShopDTO toShopDTO(ShopEntity shopEntity){
@@ -40,6 +41,7 @@ public class ShopDTO {
         shopDTO.setCreatedTime(shopEntity.getCreatedTime());
         shopDTO.setUpdatedTime(shopEntity.getUpdatedTime());
         shopDTO.setShopPass(shopEntity.getShopPass());
+        shopDTO.setMemberName(shopEntity.getMemberName());
         return shopDTO;
     }
 

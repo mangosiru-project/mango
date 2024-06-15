@@ -3,6 +3,7 @@ package com.example.demo.member.controller;
 import com.example.demo.member.dto.ShopDTO;
 import com.example.demo.member.service.ShopService;
 import lombok.RequiredArgsConstructor;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,19 +16,29 @@ import java.util.List;
 public class ShopController {
     private final ShopService shopService;
     @GetMapping("/manage")
-    public String manageForm(){
-        return "BeforeRegistration";
+    public String manageForm(HttpSession session,Model model){
+        String memberName = (String) session.getAttribute("loginName");  // 로그인된 사용자의 ID 가져오기
+        if (shopService.hasShop(memberName)) {
+            ShopDTO shopDTO = shopService.findByMemberName(memberName);
+            model.addAttribute("shop", shopDTO);
+            return "MyManagement";
+        } else {
+            return "BeforeRegistration";
+        }
+
     }
     @GetMapping("/save")
     public String shopSaveForm(){
         return "Registration";
     }
     @PostMapping("/save")
-    public String shopSave(@ModelAttribute ShopDTO shopDTO, Model model){
+    public String shopSave(@ModelAttribute ShopDTO shopDTO,HttpSession session, Model model){
         System.out.println("shopDTO = " + shopDTO);
         if (shopService == null) {
             System.out.println("shopService is null");
         }
+        String memberName = (String) session.getAttribute("loginName");  // 로그인된 사용자의 ID 가져오기
+        shopDTO.setMemberName(memberName);  // 작성자 ID 설정
         shopService.shopSave(shopDTO);
         addCommonAttributes(model);
 
@@ -66,14 +77,15 @@ public class ShopController {
 
         return "ShopDetail";
     }
-    @GetMapping("/update/{id}")
-    public String updateForm(@PathVariable Long id, Model model){
+    @GetMapping("/update")
+    public String updateForm(@PathVariable Long id,HttpSession session, Model model){
         ShopDTO shopDTO = shopService.findById(id);
         model.addAttribute("shopUpdate",shopDTO);
         return "ShopUpdate";
     }
     @PostMapping("/update")
     public String update(@ModelAttribute ShopDTO shopDTO, Model model){
+
         ShopDTO shop = shopService.update(shopDTO);
         model.addAttribute("shop",shop);
         return "ShopDetail";

@@ -37,7 +37,14 @@ public class ShopService {
         return shopDTOList;
 
     }
+    public boolean hasShop(String memberName) {
+        return shopRepository.existsByMemberName(memberName);
+    }
 
+    public ShopDTO findByMemberName(String memberName) {
+        ShopEntity shopEntity = shopRepository.findByMemberName(memberName);
+        return shopEntity != null ? ShopEntity.toShopDTO(shopEntity) : null;
+    }
 
 
     public ShopDTO findById(Long id) {
@@ -49,6 +56,7 @@ public class ShopService {
         }else{
             return null;
         }
+
 
     }
 

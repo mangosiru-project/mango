@@ -8,5 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ShopRepository extends JpaRepository<ShopEntity, Long> {
 
+    boolean existsByMemberName(String memberName);
+    ShopEntity findByMemberName(String memberName);
 
 }

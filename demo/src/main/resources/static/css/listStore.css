@@ -14,7 +14,7 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #f9f9f9;
-    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; /* 폰트 설정 */
     margin: 0;
 }
 
@@ -71,7 +71,7 @@ main {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     margin-bottom: 20px; /* 메인과 푸터 사이에 공간 추가 */
-    width: 90%;
+    width: 100%;
     max-width: 800px;
     flex: 1;  /* 메인 컨텐츠가 남은 공간을 차지하도록 설정 */
 }
@@ -101,6 +101,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+    font-family: Arial, sans-serif; /* 폰트 설정 */
 }
 
 th, td {

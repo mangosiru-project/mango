@@ -8,6 +8,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -37,6 +39,11 @@ public class ShopEntity extends BaseEntity{
     private LocalDateTime updatedTime;
     @Column(length=50, nullable=false)
     private String memberName;  // 작성자 ID 필드 추가
+    @Column
+    private int fileAttached;//1 or 0
+
+    @OneToMany(mappedBy = "shopEntity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<ShopFileEntity> shopFileEntityList = new ArrayList<>();  // 필드 이름을 일치시킴
 
 
     public static ShopEntity toShopSaveEntity(ShopDTO shopDTO){
@@ -51,6 +58,7 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
         shopEntity.setShopPass(shopDTO.getShopPass());
         shopEntity.setMemberName(shopDTO.getMemberName());  // 작성자 ID 설정
+        shopEntity.setFileAttached(0);//파일없음.
         return shopEntity;
     }
 
@@ -68,6 +76,7 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
         shopEntity.setShopPass(shopDTO.getShopPass());
         shopEntity.setMemberName(shopDTO.getMemberName());  // 작성자 ID 설정
+
         return shopEntity;
     }
     public static ShopDTO toShopDTO(ShopEntity shopEntity) {
@@ -82,6 +91,23 @@ public class ShopEntity extends BaseEntity{
         shopDTO.setUpdatedTime(shopEntity.getUpdatedTime());
         shopDTO.setShopPass(shopEntity.getShopPass());
         shopDTO.setMemberName(shopEntity.getMemberName());  // 작성자 ID 설정
+
         return shopDTO;
+    }
+
+    public static ShopEntity toSaveFileEntity(ShopDTO shopDTO) {
+        ShopEntity shopEntity = new ShopEntity();
+        shopEntity.setId(shopDTO.getId());
+        shopEntity.setStorename(shopDTO.getStorename());
+        shopEntity.setPostCode(shopDTO.getPostCode());
+        shopEntity.setDetailAdr(shopDTO.getDetailAdr());
+        shopEntity.setStreetAdr(shopDTO.getStreetAdr());
+        shopEntity.setStoreintro(shopDTO.getStoreintro());
+        shopEntity.setCreatedTime(shopDTO.getCreatedTime());
+        shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
+        shopEntity.setShopPass(shopDTO.getShopPass());
+        shopEntity.setMemberName(shopDTO.getMemberName());  // 작성자 ID 설정
+        shopEntity.setFileAttached(1);//파일있음.
+        return shopEntity;
     }
 }

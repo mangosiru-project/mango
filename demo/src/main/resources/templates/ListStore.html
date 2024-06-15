@@ -36,6 +36,10 @@
             <td><a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}"></a></td>
             <td th:text="${shop.storeintro}"></td>
             <td th:text="${shop.streetAdr}"></td>
+
+            <td th:each="fileName:${shop.storedFileName}">
+                <img th:src="@{'/upload/' + ${fileName}}" alt="Image">
+            </td>
         </tr>
     </table>
 </main>

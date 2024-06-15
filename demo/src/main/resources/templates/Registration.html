@@ -11,7 +11,7 @@
     <h2>내 가게 등록하기</h2>
 </header>
 <main>
-    <form action="/shop/save" method="post">
+    <form action="/shop/save" method="post" enctype="multipart/form-data">
         <label for="storename">가게명</label>
         <input type="text" id="storename" name="storename">
         <label for="shopPass">비밀번호</label>
@@ -28,7 +28,7 @@
         <textarea id="storeintro" name="storeintro" rows="4" cols="50"></textarea>
         <label for="btnAtt">대표 사진</label>
         <div id="image_preview">
-            <input type="file" id="btnAtt" accept="image/*"/>
+            <input type="file" id="btnAtt" name="shopFile" accept="image/*" multiple>
             <div id="att_zone"></div>
         </div>
         <input id="summit" type="submit" value="등록">

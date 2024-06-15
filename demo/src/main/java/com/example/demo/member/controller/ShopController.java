@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -32,7 +33,7 @@ public class ShopController {
         return "Registration";
     }
     @PostMapping("/save")
-    public String shopSave(@ModelAttribute ShopDTO shopDTO,HttpSession session, Model model){
+    public String shopSave(@ModelAttribute ShopDTO shopDTO,HttpSession session, Model model) throws IOException {
         System.out.println("shopDTO = " + shopDTO);
         String memberName = (String) session.getAttribute("loginName");  // 로그인된 사용자의 ID 가져오기
         shopDTO.setMemberName(memberName);  // 작성자 ID 설정

@@ -13,7 +13,14 @@ import java.time.LocalDateTime;
 public class ShopDTO {
     private Long id;
     private String storename;
-    private String storeplace;
+
+    //주소
+    private String postCode;
+
+    private String streetAdr;
+
+    private String detailAdr;
+
 
     private String storeintro;
     private LocalDateTime createdTime;
@@ -26,7 +33,9 @@ public class ShopDTO {
         shopDTO.setStorename(shopEntity.getStorename());
         shopDTO.setStoreintro(shopEntity.getStoreintro());
         shopDTO.setStorename(shopEntity.getStorename());
-        shopDTO.setStoreplace(shopEntity.getStoreplace());
+        shopDTO.setPostCode(shopEntity.getPostCode());
+        shopDTO.setStreetAdr(shopEntity.getStreetAdr());
+        shopDTO.setDetailAdr(shopEntity.getDetailAdr());
         shopDTO.setCreatedTime(shopEntity.getCreatedTime());
         shopDTO.setUpdatedTime(shopEntity.getUpdatedTime());
 

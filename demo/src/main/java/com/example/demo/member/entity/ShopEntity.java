@@ -29,6 +29,7 @@ public class ShopEntity extends BaseEntity{
     @Column
     private LocalDateTime updatedTime;
 
+
     public static ShopEntity toShopSaveEntity(ShopDTO shopDTO){
         ShopEntity shopEntity = new ShopEntity();
         shopEntity.setId(shopDTO.getId());
@@ -37,6 +38,7 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setStoreintro(shopDTO.getStoreintro());
         shopEntity.setCreatedTime(shopDTO.getCreatedTime());
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
+
         return shopEntity;
     }
 

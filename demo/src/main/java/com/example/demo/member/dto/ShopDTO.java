@@ -19,6 +19,7 @@ public class ShopDTO {
     private LocalDateTime createdTime;
     private LocalDateTime updatedTime;
 
+
     public static ShopDTO toShopDTO(ShopEntity shopEntity){
         ShopDTO shopDTO =new ShopDTO();
         shopDTO.setId(shopEntity.getId());
@@ -28,6 +29,7 @@ public class ShopDTO {
         shopDTO.setStoreplace(shopEntity.getStoreplace());
         shopDTO.setCreatedTime(shopEntity.getCreatedTime());
         shopDTO.setUpdatedTime(shopEntity.getUpdatedTime());
+
         return shopDTO;
     }
 

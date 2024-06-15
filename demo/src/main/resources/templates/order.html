@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>주문하기</title>
-    <link rel="stylesheet" href="static/css/order.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/order.css">
 </head>
 <body>
 <header>
-    <button tyep="button" onclick="location.href=''">뒤로가기</button>
-    <h2>주문하기</h2>
+    <button type="button" onclick="location.href='/'">뒤로가기</button>
+    <h1>주문하기</h1>
 </header>
 
-<form>
-
+<form id="orderForm">
     <img id="preview" />
-    <input type="file" onchange="readURL(this);"><br>
+    <input type="file" id="fileInput" onchange="readURL(this);"><br>
 
     <label>수령 날짜</label>
-    <input type="date"><br>
+    <input type="date" id="dateInput"><br>
     <label>수령 시간</label>
-    <input type="time"><br>
+    <input type="time" id="timeInput"><br>
     <label>수령 방법</label>
-    <form>
-        <input type="radio" name="pickup">픽업
-        <input type="radio" name="pickup">배달<br>
-    </form>
+    <div>
+        <input type="radio" name="pickup" id="pickup1" value="픽업">
+        <label for="pickup1">픽업</label>
+        <input type="radio" name="pickup" id="pickup2" value="배달">
+        <label for="pickup2">배달</label><br>
+    </div>
     <label>문구 및 상세 설명</label><br>
-    <input type="text" name="descript"><br>
+    <textarea name="descript" id="descript" rows="4"></textarea><br>
 
-    <input type="button" value="주문하기" onClick="location.href='./orderCheck.html'">
+    <input type="button" value="주문하기" onclick="validateForm()">
 </form>
+
+<script src="/js/order.js"></script>
 </body>
-<script>
-function readURL(input){
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function(e) {
-            document.getElementById('preview').src = e.target.result;
-        };
-        reader.readAsDataURL(input.files[0]);
-    } else {
-        document.getElementById('preview').src = "";
-    }
-}
-</script>
 </html>

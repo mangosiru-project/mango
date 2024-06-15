@@ -21,7 +21,12 @@ public class ShopEntity extends BaseEntity{
     @Column(length=20, nullable=false)
     private String storename;
     @Column
-    private String storeplace;
+    //주소
+    private String postCode;
+    @Column
+    private String streetAdr;
+    @Column
+    private String detailAdr;
     @Column
     private String storeintro;
     @Column
@@ -34,7 +39,9 @@ public class ShopEntity extends BaseEntity{
         ShopEntity shopEntity = new ShopEntity();
         shopEntity.setId(shopDTO.getId());
         shopEntity.setStorename(shopDTO.getStorename());
-        shopEntity.setStoreplace(shopDTO.getStoreplace());
+        shopEntity.setPostCode(shopDTO.getPostCode());
+        shopEntity.setDetailAdr(shopDTO.getDetailAdr());
+        shopEntity.setStreetAdr(shopDTO.getStreetAdr());
         shopEntity.setStoreintro(shopDTO.getStoreintro());
         shopEntity.setCreatedTime(shopDTO.getCreatedTime());
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());

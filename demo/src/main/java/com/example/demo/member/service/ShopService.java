@@ -15,6 +15,9 @@ import java.util.Optional;
 
 public class ShopService {
     private final ShopRepository shopRepository;
+
+
+
     public void shopSave(ShopDTO shopDTO){
         ShopEntity shopEntity = ShopEntity.toShopSaveEntity(shopDTO);
         shopRepository.save(shopEntity);
@@ -27,6 +30,20 @@ public class ShopService {
             shopDTOList.add(ShopDTO.toShopDTO(shopEntity));
         }
         return shopDTOList;
+
+    }
+
+
+
+    public ShopDTO findById(Long id) {
+        Optional<ShopEntity> optionalShopEntity=shopRepository.findById(id);
+        if(optionalShopEntity.isPresent()){
+            ShopEntity shopEntity=optionalShopEntity.get();
+            ShopDTO shopDTO=ShopDTO.toShopDTO(shopEntity);
+            return shopDTO;
+        }else{
+            return null;
+        }
 
     }
 

@@ -38,6 +38,11 @@ public class MemberController {
     private void addCommonAttributes(Model model) {
         List<ShopDTO> shopDTOList;
         shopDTOList = shopService.findAll();
+        if (shopDTOList == null) {
+            System.out.println("shopDTOList is null");
+        } else {
+            System.out.println("shopDTOList size = " + shopDTOList.size());
+        }
         model.addAttribute("shopList", shopDTOList);
     }
     @GetMapping("/member/login")

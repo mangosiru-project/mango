@@ -34,9 +34,6 @@ public class ShopController {
     @PostMapping("/save")
     public String shopSave(@ModelAttribute ShopDTO shopDTO,HttpSession session, Model model){
         System.out.println("shopDTO = " + shopDTO);
-        if (shopService == null) {
-            System.out.println("shopService is null");
-        }
         String memberName = (String) session.getAttribute("loginName");  // 로그인된 사용자의 ID 가져오기
         shopDTO.setMemberName(memberName);  // 작성자 ID 설정
         shopService.shopSave(shopDTO);
@@ -78,14 +75,16 @@ public class ShopController {
         return "ShopDetail";
     }
     @GetMapping("/update")
-    public String updateForm(@PathVariable Long id,HttpSession session, Model model){
-        ShopDTO shopDTO = shopService.findById(id);
+    public String updateForm(HttpSession session, Model model){
+        String memberName = (String) session.getAttribute("loginName");
+        ShopDTO shopDTO = shopService.findByMemberName(memberName);
         model.addAttribute("shopUpdate",shopDTO);
         return "ShopUpdate";
     }
     @PostMapping("/update")
-    public String update(@ModelAttribute ShopDTO shopDTO, Model model){
-
+    public String update(@ModelAttribute ShopDTO shopDTO,HttpSession session,  Model model){
+        String memberName = (String) session.getAttribute("loginName");
+        shopDTO.setMemberName(memberName);  // 세션에서 가져온 memberName을 설정
         ShopDTO shop = shopService.update(shopDTO);
         model.addAttribute("shop",shop);
         return "ShopDetail";

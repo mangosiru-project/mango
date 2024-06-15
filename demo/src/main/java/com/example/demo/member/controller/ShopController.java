@@ -66,4 +66,17 @@ public class ShopController {
 
         return "ShopDetail";
     }
+    @GetMapping("/update/{id}")
+    public String updateForm(@PathVariable Long id, Model model){
+        ShopDTO shopDTO = shopService.findById(id);
+        model.addAttribute("shopUpdate",shopDTO);
+        return "ShopUpdate";
+    }
+    @PostMapping("/update")
+    public String update(@ModelAttribute ShopDTO shopDTO, Model model){
+        ShopDTO shop = shopService.update(shopDTO);
+        model.addAttribute("shop",shop);
+        return "ShopDetail";
+
+    }
 }

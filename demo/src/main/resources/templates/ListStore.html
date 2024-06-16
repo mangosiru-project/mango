@@ -49,27 +49,20 @@
 </section>
 
 <main>
-    <div class="main-buttons">
-        <div>
-            <label><input type="radio" name="sort" id="near"> 가까운순</label>
-        </div>
-        <div>
-            <button id="reg" onclick="location.href='/shop/manage'">가게 관리</button>
-        </div>
-    </div>
     <table>
         <tr>
-            <th>순서</th>
+            <!--<th>순서</th>-->
             <th>가게이름</th>
-            <th>가게소개</th>
-            <th>가게위치</th>
+            <!--<th>가게소개</th>-->
+            <!--<th>가게위치</th>-->
         </tr>
         <tr th:each="shop: ${shopList}">
-            <td th:text="${shop.id}"></td>
+            <!--<td th:text="${shop.id}"></td>-->
             <td><a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}"></a></td>
-            <td th:text="${shop.storeintro}"></td>
-            <td th:text="${shop.streetAdr}"></td>
+            <!--<td th:text="${shop.storeintro}"></td>-->
+            <!--<td th:text="${shop.streetAdr}"></td>-->
         </tr>
+
     </table>
 </main>
 

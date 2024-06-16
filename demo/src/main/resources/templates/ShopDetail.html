@@ -32,19 +32,19 @@
         <img th:each="fileName: ${shop.storedFileName}" th:src="@{'/upload/' + ${fileName}}" alt="Image">
     </div>
     <div class="shop-intro">
-        <h3>소개</h3>
+        <h3>소개</h3><br>
         <p th:text="${shop.storeintro}"></p>
+        <br>
     </div>
     <div class="shop-address">
-        <h3>주소</h3>
+        <h3>주소</h3><br>
         <p th:text="${shop.postCode}"></p>
         <p th:text="${shop.streetAdr}"></p>
         <p th:text="${shop.detailAdr}"></p>
+        <br>
     </div>
     <div class="button-container">
-        <button onclick="listReq()">목록</button>
         <button onclick="orderReq()">주문하기</button>
-        <button onclick="deleteReq()">삭제</button>
     </div>
 </main>
 <footer>
@@ -54,17 +54,9 @@
     <p class="footer-info">Address: 1 Chungdae-ro, Seowon-gu, Cheongju, Chungbuk National University</p>
 </footer>
 <script th:inline="javascript">
-    const listReq = () => {
-        location.href = "/shop/";
-    }
     const orderReq = () => {
         const storename = /*[[${shop.storename}]]*/ '';
         location.href = '/order/save/new?storename=' + storename;
-    }
-    const deleteReq = () => {
-        if(confirm("정말 삭제하시겠습니까?")) {
-            // Add your delete logic here
-        }
     }
 </script>
 </body>

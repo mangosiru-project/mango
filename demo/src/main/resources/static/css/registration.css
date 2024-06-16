@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     margin: 0;
 }
 
@@ -111,7 +111,6 @@ main {
     background: white;
     padding: 20px;  /* 패딩 감소 */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 0; /* 위아래 마진 추가 */
     width: 90%;
     max-width: 800px;  /* 최대 너비 설정 */
@@ -162,8 +161,8 @@ label {
 }
 
 input[type="submit"] {
-    background-color: #007BFF;
-    color: white;
+    background-color: #fcedb4;
+    color: #000000;
     border: none;
     padding: 15px;  /* 패딩 증가 */
     border-radius: 5px;
@@ -172,7 +171,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #ffd500;
+    color: white;
 }
 
 #image_preview {

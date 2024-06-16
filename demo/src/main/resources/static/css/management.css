@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     margin: 0;
 }
 
@@ -108,10 +108,9 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;  /* 수직 및 수평 가운데 정렬 */
-    background: white;
+    background: #ffffff;
     padding: 20px;  /* 패딩 감소 */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 0; /* 위아래 마진 추가 */
     width: 90%;
     max-width: 800px;  /* 최대 너비 설정 */
@@ -133,8 +132,8 @@ button {
     border-radius: 5px;
     cursor: pointer;
     margin: 15px;  /* 버튼 간의 간격 증가 */
-    width: 240px;  /* 너비 증가 */
-    font-size: 16px;  /* 글자 크기 증가 */
+    width: 300px;  /* 너비 증가 */
+    font-size: 20px;  /* 글자 크기 증가 */
 }
 
 button:hover {

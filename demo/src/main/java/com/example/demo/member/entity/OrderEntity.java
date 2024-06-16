@@ -57,6 +57,20 @@ public class OrderEntity {
         orderEntity.setFileAttached(0);
         return orderEntity;
     }
+    public static OrderDTO toOrderDTO(OrderEntity orderEntity){
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setId(orderEntity.getId());
+        orderDTO.setMemberName(orderEntity.getMemberName());
+        orderDTO.setDescription(orderEntity.getDescription());
+        orderDTO.setPickupMethod(orderEntity.getPickupMethod());
+        orderDTO.setStorename(orderEntity.getStorename());
+        orderDTO.setReceiveTime(orderEntity.getReceiveTime());
+        orderDTO.setReceiveDate(orderEntity.getReceiveDate());
+        orderDTO.setFileAttached(orderEntity.getFileAttached());
+
+        return orderDTO;
+
+    }
     public static OrderEntity toSaveFileEntity(OrderDTO orderDTO) {
         OrderEntity orderEntity = new OrderEntity();
         orderEntity.setId(orderDTO.getId());
@@ -71,6 +85,7 @@ public class OrderEntity {
         orderEntity.setFileAttached(1);//파일있음.
         return orderEntity;
     }
+
 
 
 }

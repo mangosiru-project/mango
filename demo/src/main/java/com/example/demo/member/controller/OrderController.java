@@ -40,12 +40,26 @@ public class OrderController {
     @PostMapping("/save")
     public String shopSave(@ModelAttribute OrderDTO orderDTO, HttpSession session, Model model) throws IOException {
 
-        String memberName = (String) session.getAttribute("loginName");  // 로그인된 사용자의 ID 가져오기
-        orderDTO.setMemberName(memberName);  // 작성자 ID 설정
-        orderService.orderSave(orderDTO);
-        addCommonAttributes(model);
+        String memberName = (String) session.getAttribute("loginName");
+        orderDTO.setMemberName(memberName);
+        OrderDTO savedOrder = orderService.orderSave(orderDTO); // 저장된 주문 정보 반환
+        session.setAttribute("recentOrder", savedOrder); // 최근 주문 저장
+        return "redirect:/order/orderCheck";
+    }
+    @GetMapping("/orderCheck")
+    public String orderCheck(Model model, HttpSession session) {
+        String memberName = (String) session.getAttribute("loginName");
+        List<OrderDTO> orders = orderService.findOrdersByMemberName(memberName);
+
+        OrderDTO recentOrder = (OrderDTO) session.getAttribute("recentOrder");
+        model.addAttribute("recentOrder", recentOrder);
+
+        model.addAttribute("orders", orders);
+
+
 
         return "orderCheck";
     }
+
 
 }

@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 header {
@@ -112,7 +112,6 @@ main {
     background: white;
     padding: 20px;  /* 패딩 감소 */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 0; /* 위아래 마진 추가 */
     width: 90%;
     max-width: 800px;  /* 최대 너비 설정 */
@@ -143,14 +142,13 @@ button {
     background-color: #fcedb4;
     color: #000000;
     border: none;
-    padding: 10px 20px;
+    padding: 20px 60px; /* 버튼 크기 증가 */
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px; /* 글자 크기 증가 */
+    margin-bottom: 30px; /* 버튼 아래 여백 증가 */
 }
 
 button:hover {
     background-color: #ffd500;
 }
-
-

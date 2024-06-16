@@ -5,7 +5,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     padding-top: 150px;  /* 헤더 높이에 맞게 상단 여백 추가 */
 }
 
@@ -90,4 +90,5 @@ input[type="button"] {
 
 input[type="button"]:hover {
     background-color: #fcd674;
+    color: white;
 }

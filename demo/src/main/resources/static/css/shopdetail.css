@@ -139,8 +139,8 @@ main {
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
+    background-color: #fcedb4;
+    color: #000000;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -149,18 +149,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ffd500;
 }
 
-footer {
-    background-color: #fcedb4;
-    color: #000000;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-}
 
-.footer-info {
-    margin: 5px 0;
-}

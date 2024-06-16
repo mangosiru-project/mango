@@ -142,18 +142,6 @@ h1, h2 {
     }
 }
 
-footer {
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;  /* 푸터를 페이지 하단에 고정 */
-}
-
-.footer-info {
-    margin: 5px 0;
-}
 
 /* 로그아웃과 내정보수정 부분 버튼, 툴팁 스타일 */
 .top-right-buttons {

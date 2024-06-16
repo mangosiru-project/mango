@@ -8,7 +8,6 @@
 </head>
 <body>
 <header>
-    <button type="button" onclick="location.href='/'">뒤로가기</button>
     <h1>주문하기</h1>
 </header>
 
@@ -30,6 +29,9 @@
     </div>
     <label>문구 및 상세 설명</label><br>
     <textarea name="description" id="descript" rows="4"></textarea><br>
+
+    <label for="phoneNumber">전화번호</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber"><br>
 
     <input type="button" value="주문하기" onclick="validateForm()">
 </form>

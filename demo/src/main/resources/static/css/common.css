@@ -10,3 +10,135 @@ body, h1, h2, h3, h4, h5, h6, p, button, input, textarea, label {
     font-family: 'Partial Sans KR', Arial, sans-serif;
     font-weight: 100;  /* 폰트 두께 설정 */
 }
+
+footer {
+    background-color: #fcedb4;
+    color: #5a5a5a;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-info {
+    margin: 5px 0;
+}
+
+/* common.css */
+
+/* 모든 요소의 기본 여백 및 패딩을 0으로 설정하고 박스 크기 계산을 일정하게 유지 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px 10px;
+    background-color: #fcedb4;
+    color: #000000;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.top-right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.top-right-buttons img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+header h2 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    font-size: 36px;
+}
+
+nav.banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+nav.banner a {
+    margin: 0 25px;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav.banner a:hover, nav.banner a.active {
+    color: white;
+    background-color: #f7c602;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #fcedb4;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-info {
+    margin: 5px 0;
+}

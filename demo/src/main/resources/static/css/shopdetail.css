@@ -15,92 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
-}
-
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 40px 20px 10px;
-    background-color: #fcedb4;
-    color: #000000;
-    border-bottom: 1px solid #ccc;
-    position: relative;
-}
-
-.top-right-buttons {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.top-right-buttons img {
-    width: 30px; /* 이미지 크기 조정 */
-    height: 30px;
-    cursor: pointer;
-    margin-left: 20px; /* 이미지 간격 조정 */
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #000;  /* 툴팁 배경색을 검은색으로 설정 */
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    font-size: 12px;  /* 글씨 크기 조정 */
-    position: absolute;
-    z-index: 1;
-    top: 150%;  /* 툴팁이 아이콘 아래에 나타나도록 조정 */
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
-header h1 {
-    margin-top: 10px; /* 위로 올려서 버튼과 간격 확보 */
-    margin-bottom: 30px; /* 텍스트 아래에 더 많은 여백 추가 */
-    font-size: 36px;  /* 텍스트 크기 조정 */
-}
-
-nav.banner {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 20px; /* "내 가게 관리" 텍스트와 베너 사이의 공간 추가 */
-}
-
-nav.banner a {
-    margin: 0 25px;
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-nav.banner a:hover, nav.banner a.active {
-    color: white;
-    background-color: #f7c602;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: #ffffff;
 }
 
 main {
@@ -111,7 +26,6 @@ main {
     background: white;
     padding: 20px;  /* 패딩 감소 */
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px 0; /* 위아래 마진 추가 */
     width: 90%;
     max-width: 800px;  /* 최대 너비 설정 */
@@ -139,28 +53,16 @@ main {
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
+    background-color: #fcedb4;
+    color: #000000;
     border: none;
-    padding: 10px 20px;
+    padding: 20px 60px; /* 버튼 크기 증가 */
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px; /* 글자 크기 증가 */
+    margin-bottom: 30px; /* 버튼 아래 여백 증가 */
 }
 
 button:hover {
-    background-color: #0056b3;
-}
-
-footer {
-    background-color: #fcedb4;
-    color: #000000;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;
-}
-
-.footer-info {
-    margin: 5px 0;
+    background-color: #ffd500;
 }

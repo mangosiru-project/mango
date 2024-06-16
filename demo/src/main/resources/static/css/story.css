@@ -11,49 +11,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 40px 20px 5px;  /* 패딩 조정 (bottom padding 줄임) */
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
-    border-bottom: 1px solid #ccc;
-    position: relative;
-    margin-bottom: 10px; /* 헤더와 다음 요소 사이의 여백 추가 */
-}
-
-header h1 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 36px;
-}
-
-nav.banner {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 10px 0;
-    margin-top: 20px; /* 베너와 텍스트 사이의 여백 추가 */
-}
-
-nav.banner a {
-    margin: 0 25px;
-    color: black;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-nav.banner a:hover, nav.banner a.active {
-    color: white;
-    background-color: #f7c602;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 body {
     display: flex;
     flex-direction: column;
@@ -142,60 +99,4 @@ h1, h2 {
     }
 }
 
-footer {
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;  /* 푸터를 페이지 하단에 고정 */
-}
 
-.footer-info {
-    margin: 5px 0;
-}
-
-/* 로그아웃과 내정보수정 부분 버튼, 툴팁 스타일 */
-.top-right-buttons {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.top-right-buttons img {
-    width: 30px; /* 이미지 크기 조정 */
-    height: 30px;
-    cursor: pointer;
-    margin-left: 20px; /* 이미지 간격 조정 */
-}
-
-.tooltip {
-    position: relative;
-    display: inline-block;
-}
-
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 80px; /* 텍스트 너비 조정 */
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 3px 0; /* 패딩 조정 */
-    position: absolute;
-    z-index: 1;
-    top: 150%; /* 툴팁 위치를 아래로 조정 */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px; /* 글씨 크기 조정 */
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}

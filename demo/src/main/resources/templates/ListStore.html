@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List of Stores</title>
+    <title>가게 목록</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/listStore.css">
-    <link rel="stylesheet" href="/css/slider.css"> <!-- Add this line -->
+    <link rel="stylesheet" href="/css/slider.css"> <!-- 슬라이더 CSS 링크 추가 -->
 </head>
 <body>
 <header>
@@ -21,25 +21,16 @@
         <a onclick="location.href='/story'">스토리</a>
     </nav>
 </header>
-<main>
-    <!-- Slider Section -->
+
+<!-- 슬라이더 섹션 -->
+<section class="slider-section">
     <div class="slider">
         <div class="slides">
-            <div class="slide">
-                <img src="/image/slider_cake1.jpg" alt="Image 1">
-            </div>
-            <div class="slide">
-                <img src="/image/slider_cake2.jpg" alt="Image 2">
-            </div>
-            <div class="slide">
-                <img src="/image/slider_cake3.jpg" alt="Image 3">
-            </div>
-            <div class="slide">
-                <img src="/image/slider_cake4.jpg" alt="Image 4">
-            </div>
-            <div class="slide">
-                <img src="/image/slider_cake5.jpg" alt="Image 5">
-            </div>
+            <div class="slide"><img src="/image/slider_cake1.jpg" alt="Image 1"></div>
+            <div class="slide"><img src="/image/slider_cake2.jpg" alt="Image 2"></div>
+            <div class="slide"><img src="/image/slider_cake3.jpg" alt="Image 3"></div>
+            <div class="slide"><img src="/image/slider_cake4.jpg" alt="Image 4"></div>
+            <div class="slide"><img src="/image/slider_cake5.jpg" alt="Image 5"></div>
         </div>
         <div class="dots">
             <span class="dot" onclick="currentSlide(1)"></span>
@@ -49,7 +40,9 @@
             <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
-    <br><br><br>
+</section>
+
+<main>
     <div class="main-buttons">
         <div>
             <label><input type="radio" name="sort" id="near"> 가까운순</label>
@@ -73,6 +66,7 @@
         </tr>
     </table>
 </main>
+
 <footer>
     <p class="footer-info">Name: Make A Wish</p>
     <p class="footer-info">Team: MangoSiru</p>

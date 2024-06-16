@@ -2,16 +2,16 @@
 .slider {
     position: relative;
     width: 100%;
-    max-width: 600px;
     margin: auto;
     overflow: hidden;
-    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 700px; /* 세로 길이 */
 }
 
 .slides {
     display: flex;
     transition: transform 0.5s ease-in-out;
+    height: 100%; /* 슬라이더 높이에 맞춤 */
 }
 
 .slide {
@@ -21,7 +21,8 @@
 
 .slide img {
     width: 100%;
-    border-radius: 10px;
+    height: 100%; /* 이미지가 슬라이더를 채우도록 */
+    object-fit: cover; /* 이미지 비율을 유지하면서 슬라이더를 채움 */
 }
 
 .dots {

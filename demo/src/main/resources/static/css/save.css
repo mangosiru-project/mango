@@ -52,6 +52,11 @@ input[type="text"], input[type="password"], input[type="email"] {
     width: calc(100% - 130px); /* 레이블의 너비 + margin-right을 고려 */
 }
 
+input[type="password"] {
+    font-family: 'Courier New', Courier, monospace; /* 비밀번호 필드의 글꼴 설정 */
+    letter-spacing: 0.1em; /* 비밀번호 필드의 글자 간격 설정 */
+}
+
 div.postcode-container {
     display: flex;
     align-items: center;

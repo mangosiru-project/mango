@@ -5,6 +5,14 @@
     <title>회원가입</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/save.css">
+    <script>
+        window.onload = function() {
+            var errorMessage = /*[[${errorMessage}]]*/ 'null';
+            if (errorMessage !== 'null') {
+                alert(errorMessage);
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="container">
@@ -13,6 +21,7 @@
     </div>
     <div class="right-column">
         <header><h1>회원가입</h1></header>
+
 
         <form action="/member/save" method="post">
             <div>
@@ -91,5 +100,6 @@
         </script>
     </div>
 </div>
+
 </body>
 </html>

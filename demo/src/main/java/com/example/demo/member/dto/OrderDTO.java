@@ -23,6 +23,7 @@ public class OrderDTO {
     private String description;
     private String receiveDate;
     private String receiveTime;
+    private String phoneNumber;
     private List<MultipartFile> orderFile;//가게저장.html-> conotroller 파일 담는 용도
     private List<String> originalFilename;//원본 파일 이름
     private List<String> storedFileName;//서버 저장용 파일 이름
@@ -37,6 +38,7 @@ public class OrderDTO {
         orderDTO.setPickupMethod(orderDTO.getPickupMethod());
         orderDTO.setReceiveDate(orderDTO.getReceiveDate());
         orderDTO.setReceiveTime(orderDTO.getReceiveTime());
+        orderDTO.setPhoneNumber(orderDTO.getPhoneNumber());
         if(orderEntity.getFileAttached()==0){
             orderDTO.setFileAttached(orderEntity.getFileAttached());//0
         }else {

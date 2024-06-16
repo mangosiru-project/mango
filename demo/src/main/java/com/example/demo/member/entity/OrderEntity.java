@@ -40,6 +40,9 @@ public class OrderEntity {
     @Column
     private int fileAttached;//1 or 0
 
+    @Column
+    private String phoneNumber;
+
     @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<OrderFileEntity> orderFileEntityList = new ArrayList<>();  // 필드 이름을 일치시킴
 
@@ -54,6 +57,7 @@ public class OrderEntity {
         orderEntity.setDescription(orderDTO.getDescription());
         orderEntity.setReceiveDate(orderDTO.getReceiveDate());
         orderEntity.setReceiveTime(orderDTO.getReceiveTime());
+        orderEntity.setPhoneNumber(orderDTO.getPhoneNumber());
         orderEntity.setFileAttached(0);
         return orderEntity;
     }
@@ -66,6 +70,7 @@ public class OrderEntity {
         orderDTO.setStorename(orderEntity.getStorename());
         orderDTO.setReceiveTime(orderEntity.getReceiveTime());
         orderDTO.setReceiveDate(orderEntity.getReceiveDate());
+        orderDTO.setPhoneNumber(orderEntity.getPhoneNumber());
         orderDTO.setFileAttached(orderEntity.getFileAttached());
         if (orderEntity.getFileAttached() == 1) {
             List<String> originalFileNameList = new ArrayList<>();
@@ -90,6 +95,7 @@ public class OrderEntity {
         orderEntity.setReceiveDate(orderDTO.getReceiveDate());
         orderEntity.setReceiveTime(orderDTO.getReceiveTime());
         orderEntity.setStorename(orderDTO.getStorename());
+        orderEntity.setPhoneNumber(orderDTO.getPhoneNumber());
 
 
         orderEntity.setFileAttached(1);//파일있음.

@@ -106,6 +106,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;  /* 수직 및 수평 가운데 정렬 */
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -113,8 +114,9 @@ main {
     margin-top: 20px;
     margin-bottom: 20px; /* 메인과 푸터 사이에 공간 추가 */
     width: 90%;
-    max-width: 800px;
-    flex: 1;  /* 메인 컨텐츠가 남은 공간을 차지하도록 설정 */
+    max-width: 800px;  /* 최대 너비 설정 */
+    flex: 1;
+    text-align: center;
 }
 
 form {
@@ -126,7 +128,6 @@ form {
 
 form label, form input, form textarea {
     margin-bottom: 15px; /* 요소 간 간격 추가 */
-    font-size: 16px;  /* 글자 크기 증가 */
 }
 
 .input-group {
@@ -139,15 +140,21 @@ form label, form input, form textarea {
 
 input[type="file"],
 input[type="text"],
+input[type="password"],
 textarea,
 input[type="submit"],
 label,
 .update-button {
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 10px;
-    padding: 10px;  /* 패딩 추가 */
-    font-size: 16px;  /* 글자 크기 증가 */
+   width: 100%;
+   max-width: 500px;
+   margin-bottom: 10px;
+   font-size: 16px;  /* 글자 크기 증가 */
+   padding: 10px;  /* 패딩 추가 */
+}
+
+input[type="password"] {
+    font-family: 'Courier New', Courier, monospace; /* 비밀번호 필드의 글꼴 설정 */
+    letter-spacing: 0.1em; /* 비밀번호 필드의 글자 간격 설정 */
 }
 
 .input-group input[type="text"] {
@@ -156,9 +163,9 @@ label,
 }
 
 .input-group input[type="button"] {
-    width: 20%; /* 너비 설정 */
-    height: calc(100% - 2px); /* 텍스트 입력 창과 같은 높이 */
-    margin-left: 5px; /* 간격 추가 */
+     width: 20%; /* 너비 설정 */
+     height: calc(100% - 2px); /* 텍스트 입력 창과 같은 높이 */
+     margin-left: 5px; /* 간격 추가 */
 }
 
 input[type="submit"],

@@ -74,9 +74,9 @@ header {
     opacity: 1;
 }
 
-header h1 {
-    margin-top: 20px;
-    margin-bottom: 20px; /* 텍스트 아래에 더 많은 여백 추가 */
+header h2 {
+    margin-top: 10px;
+    margin-bottom: 30px; /* 텍스트 아래에 더 많은 여백 추가 */
     font-size: 36px;
 }
 
@@ -138,17 +138,4 @@ button {
 
 button:hover {
     background-color: #0056b3;
-}
-
-footer {
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;  /* 푸터를 페이지 하단에 고정 */
-}
-
-.footer-info {
-    margin: 5px 0;
 }

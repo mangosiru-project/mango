@@ -14,7 +14,7 @@
         <p>수령 날짜: <span th:text="${recentOrder.receiveDate}"></span></p>
         <p>수령 시간: <span th:text="${recentOrder.receiveTime}"></span></p>
         <p>수령 방법: <span th:text="${recentOrder.pickupMethod}"></span></p>
-        <p>주문 내역: <span th:text="${recentOrder.phoneNumber}"></span></p>
+        <p>전화번호: <span th:text="${recentOrder.phoneNumber}"></span></p>
         <div th:if="${recentOrder.fileAttached == 1}">
             <div th:each="fileName : ${recentOrder.storedFileName}">
                 <img th:src="@{'/upload/' + ${fileName}}" alt="Image" style="width: 100px; height: 100px;">

@@ -1,0 +1,90 @@
+/* 모든 요소의 기본 여백 및 패딩을 0으로 설정하고 박스 크기 계산을 일정하게 유지 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;  /* 수직 및 수평 가운데 정렬 */
+    background: white;
+    padding: 20px;  /* 패딩 감소 */
+    border-radius: 10px;
+    margin: 20px 0; /* 위아래 마진 추가 */
+    width: 90%;
+    max-width: 800px;  /* 최대 너비 설정 */
+    flex: 1;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+form label, form input, form textarea {
+    margin-bottom: 15px; /* 요소 간 간격 추가 */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 15px; /* 요소 간 간격 추가 */
+}
+
+input[type="file"],
+input[type="text"],
+textarea,
+input[type="submit"],
+label {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 10px;
+    font-size: 16px;  /* 글자 크기 증가 */
+    padding: 10px;  /* 패딩 추가 */
+}
+
+.input-group input[type="text"] {
+    width: 80%; /* 너비 설정 */
+    padding: 10px; /* 패딩 추가 */
+}
+
+.input-group input[type="button"] {
+    width: 20%; /* 너비 설정 */
+    height: calc(100% - 2px); /* 텍스트 입력 창과 같은 높이 */
+    margin-left: 5px; /* 간격 추가 */
+}
+
+input[type="submit"] {
+    background-color: #fcedb4;
+    color: #000000;
+    border: none;
+    padding: 15px;  /* 패딩 증가 */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;  /* 글자 크기 증가 */
+}
+
+input[type="submit"]:hover {
+    background-color: #ffd500;
+    color: white;
+}

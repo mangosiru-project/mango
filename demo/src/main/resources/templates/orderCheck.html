@@ -7,11 +7,22 @@
 </head>
 <body>
 <form>
-    <label>주문 날짜</label>
-    <label>수령 날짜</label>
-    <label>수령 시간</label>
-    <label>수령 방법</label>
-    <label>문구 및 상세 설명</label>
+    <div th:if="${recentOrder != null}">
+        <P>주문내역</P>
+        <p>가게 이름: <span th:text="${recentOrder.storename}"></span></p>
+        <p>주문 내용: <span th:text="${recentOrder.description}"></span></p>
+        <p>수령 날짜: <span th:text="${recentOrder.receiveDate}"></span></p>
+        <p>수령 시간: <span th:text="${recentOrder.receiveTime}"></span></p>
+        <p>수령 방법: <span th:text="${recentOrder.pickupMethod}"></span></p>
+        <div th:if="${recentOrder.fileAttached == 1}">
+            <div th:each="fileName : ${recentOrder.storedFileName}">
+                <img th:src="@{'/upload/' + ${fileName}}" alt="Image" style="width: 100px; height: 100px;">
+            </div>
+        </div>
+        <div th:if="${recentOrder.fileAttached == 0}">
+            <p>첨부 파일 없음</p>
+        </div>
+    </div>
 </form>
 </body>
 </html>

@@ -12,24 +12,24 @@
     <h1>주문하기</h1>
 </header>
 
-<form action="/order/save" id="orderForm">
+<form action="/order/save" method="post" enctype="multipart/form-data" id="orderForm">
     <input type="hidden" name="storename" th:value="${storename}">
     <img id="preview" />
-    <input type="file" id="fileInput" onchange="readURL(this);"><br>
+    <input type="file" id="fileInput" onchange="readURL(this);" name="orderFile" accept="image/*" multiple><br>
 
     <label>수령 날짜</label>
-    <input type="date" id="dateInput"><br>
+    <input type="date" name="receiveDate" id="dateInput"><br>
     <label>수령 시간</label>
-    <input type="time" id="timeInput"><br>
+    <input type="time" id="timeInput" name="receiveTime"><br>
     <label>수령 방법</label>
     <div>
-        <input type="radio" name="pickup" id="pickup1" value="픽업">
+        <input type="radio" name="pickupMethod" id="pickup1" value="픽업">
         <label for="pickup1">픽업</label>
-        <input type="radio" name="pickup" id="pickup2" value="배달">
+        <input type="radio" name="pickupMethod" id="pickup2" value="배달">
         <label for="pickup2">배달</label><br>
     </div>
     <label>문구 및 상세 설명</label><br>
-    <textarea name="descript" id="descript" rows="4"></textarea><br>
+    <textarea name="description" id="descript" rows="4"></textarea><br>
 
     <input type="button" value="주문하기" onclick="validateForm()">
 </form>

@@ -2,12 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Shop Update</title>
+    <title>가게 수정</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/shopupdate.css">
 </head>
 <body>
 <header>
+    <div class="top-right-buttons">
+        <div class="tooltip">
+            <img src="/image/information.png" onclick="location.href='/member/update'" id="info" alt="내정보수정">
+            <span class="tooltiptext">내정보수정</span>
+        </div>
+        <div class="tooltip">
+            <img src="/image/logout.png" onclick="location.href='/member/logout'" id="logout" alt="로그아웃">
+            <span class="tooltiptext">로그아웃</span>
+        </div>
+    </div>
     <h2>내 가게 수정</h2>
     <nav class="banner">
         <a onclick="location.href='/shop/'">가게 목록</a>
@@ -24,7 +34,7 @@
         <input type="text" name="storename" id="storename" th:value="${shopUpdate.storename}"> <br>
 
         <label for="shopPass">비밀번호:</label>
-        <input type="text" name="shopPass" id="shopPass"> <br>
+        <input type="password" name="shopPass" id="shopPass"> <br>
 
         <label for="sample4_postcode">가게 주소:</label>
         <div class="input-group">
@@ -56,6 +66,47 @@
         } else {
             alert("비밀번호가 일치하지 않습니다!");
         }
+    }
+</script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                var roadAddr = data.roadAddress;
+                var extraRoadAddr = '';
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+                document.getElementById('sample4_postcode').value = data.zonecode;
+                document.getElementById("sample4_roadAddress").value = roadAddr;
+                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+                if(roadAddr !== ''){
+                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                } else {
+                    document.getElementById("sample4_extraAddress").value = '';
+                }
+                var guideTextBox = document.getElementById("guide");
+                if(data.autoRoadAddress) {
+                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                    guideTextBox.style.display = 'block';
+                } else if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                    guideTextBox.style.display = 'block';
+                } else {
+                    guideTextBox.innerHTML = '';
+                    guideTextBox.style.display = 'none';
+                }
+            }
+        }).open();
     }
 </script>
 </body>

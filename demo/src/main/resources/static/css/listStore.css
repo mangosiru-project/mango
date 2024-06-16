@@ -73,7 +73,7 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 40px 20px 10px;
+    padding: 40px 20px 5px;  /* 아래쪽 패딩을 줄여서 공백 추가 */
     background-color: #fcedb4;
     color: #000000;
     border-bottom: 1px solid #ccc;
@@ -89,24 +89,44 @@ header {
     right: 20px;
 }
 
-header button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-size: 14px;
+.top-right-buttons img {
+    width: 30px; /* 이미지 크기 조정 */
+    height: 30px;
     cursor: pointer;
-    margin: 0 5px;
+    margin-left: 20px; /* 이미지 간격 조정 */
 }
 
-header button:hover {
-    background-color: #0056b3;
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 80px; /* 텍스트 너비 조정 */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 3px 0; /* 패딩 조정 */
+    position: absolute;
+    z-index: 1;
+    top: 130%; /* 툴팁 위치 조정 */
+    left: 50%;
+    margin-left: -40px; /* 텍스트 중앙 정렬 */
+    font-size: 12px; /* 글씨 크기 조정 */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
 header h2 {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;  /* 아래쪽 마진을 늘려서 공백 추가 */
     font-size: 36px;
 }
 

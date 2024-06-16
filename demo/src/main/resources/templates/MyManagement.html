@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Store Management</title>
+    <title>가게 관리</title>
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/management.css">
 </head>
 <body>
 <header>
+    <div class="top-right-buttons">
+        <div class="tooltip">
+            <img src="/image/information.png" onclick="location.href='/member/update'" id="info" alt="내정보수정">
+            <span class="tooltiptext">내정보수정</span>
+        </div>
+        <div class="tooltip">
+            <img src="/image/logout.png" onclick="location.href='/member/logout'" id="logout" alt="로그아웃">
+            <span class="tooltiptext">로그아웃</span>
+        </div>
+    </div>
     <h2>내 가게 관리</h2>
     <nav class="banner">
         <a onclick="location.href='/shop/'">가게 목록</a>

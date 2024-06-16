@@ -34,7 +34,6 @@ form div {
 }
 
 form label {
-    font-family: 'Partial Sans KR', Arial, sans-serif;
     font-size: 16px;
     width: 80px;
     text-align: right;
@@ -42,7 +41,6 @@ form label {
 }
 
 input[type="text"], input[type="password"] {
-    font-family: 'Partial Sans KR', Arial, sans-serif;
     font-size: 16px;
     padding: 10px;
     margin: 5px 0;
@@ -50,6 +48,12 @@ input[type="text"], input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 4px;
     width: calc(100% - 100px); /* 레이블의 너비 + margin-right을 고려 */
+    background-color: #f9f9f9; /* 입력 필드의 배경색 설정 */
+}
+
+input[type="password"] {
+    font-family: 'Courier New', Courier, monospace; /* 비밀번호 필드의 글꼴 설정 */
+    letter-spacing: 0.1em; /* 비밀번호 필드의 글자 간격 설정 */
 }
 
 input[type="button"], input[type="submit"] {

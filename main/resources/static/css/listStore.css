@@ -1,0 +1,153 @@
+.slider {
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+/* All the other existing CSS rules */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px 10px;
+    background-color: #fcedb4;
+    color: #000000;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+}
+
+.top-right-buttons {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+header button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+header button:hover {
+    background-color: #0056b3;
+}
+
+header h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+nav.banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+nav.banner a {
+    margin: 0 25px;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav.banner a:hover, nav.banner a.active {
+    color: white;
+    background-color: #f7c602;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 800px;
+    flex: 1;
+}
+
+.main-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+footer {
+    background-color: #fcedb4;
+    color: #000000;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-info {
+    margin: 5px 0;
+}

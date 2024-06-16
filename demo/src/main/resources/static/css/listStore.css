@@ -1,4 +1,9 @@
-/* 모든 요소의 기본 여백 및 패딩을 0으로 설정하고 박스 크기 계산을 일정하게 유지 */
+.slider {
+    margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+/* All the other existing CSS rules */
+
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +19,6 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #f9f9f9;
-    font-family: Arial, sans-serif; /* 폰트 설정 */
     margin: 0;
 }
 
@@ -24,9 +28,9 @@ header {
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding: 40px 20px;  /* 패딩 증가 */
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
+    padding: 40px 20px 10px;
+    background-color: #fcedb4;
+    color: #000000;
     border-bottom: 1px solid #ccc;
     position: relative;
 }
@@ -36,19 +40,19 @@ header {
     justify-content: flex-end;
     width: 100%;
     position: absolute;
-    top: 20px;  /* 상단 여백 증가 */
-    right: 20px; /* 오른쪽으로 정렬 */
+    top: 20px;
+    right: 20px;
 }
 
 header button {
     background-color: #007BFF;
     color: white;
     border: none;
-    padding: 8px 15px;  /* 패딩 증가 */
+    padding: 8px 15px;
     border-radius: 5px;
-    font-size: 14px;  /* 텍스트 크기 줄이기 */
+    font-size: 14px;
     cursor: pointer;
-    margin: 0 5px;  /* 버튼 간 간격 추가 */
+    margin: 0 5px;
 }
 
 header button:hover {
@@ -56,9 +60,30 @@ header button:hover {
 }
 
 header h2 {
-    margin-top: 20px; /* 위로 올려서 버튼과 간격 확보 */
-    margin-bottom: 5px; /* 텍스트 아래에 여백 추가 */
-    font-size: 36px;  /* 텍스트 크기 증가 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+nav.banner {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+}
+
+nav.banner a {
+    margin: 0 25px;
+    color: black;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+nav.banner a:hover, nav.banner a.active {
+    color: white;
+    background-color: #f7c602;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 main {
@@ -70,10 +95,10 @@ main {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    margin-bottom: 20px; /* 메인과 푸터 사이에 공간 추가 */
+    margin-bottom: 20px;
     width: 100%;
     max-width: 800px;
-    flex: 1;  /* 메인 컨텐츠가 남은 공간을 차지하도록 설정 */
+    flex: 1;
 }
 
 .main-buttons {
@@ -101,14 +126,13 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    font-family: Arial, sans-serif; /* 폰트 설정 */
 }
 
 th, td {
     border: 1px solid #ccc;
     padding: 10px;
-    text-align: center;  /* 글씨 가운데 정렬 */
-    vertical-align: middle;  /* 세로 가운데 정렬 */
+    text-align: center;
+    vertical-align: middle;
 }
 
 th {
@@ -116,12 +140,12 @@ th {
 }
 
 footer {
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
+    background-color: #fcedb4;
+    color: #000000;
     padding: 20px;
     text-align: center;
     width: 100%;
-    margin-top: auto;  /* 푸터를 페이지 하단에 고정 */
+    margin-top: auto;
 }
 
 .footer-info {

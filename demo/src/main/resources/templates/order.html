@@ -12,7 +12,8 @@
     <h1>주문하기</h1>
 </header>
 
-<form id="orderForm">
+<form action="/order/save" id="orderForm">
+    <input type="hidden" name="storename" th:value="${storename}">
     <img id="preview" />
     <input type="file" id="fileInput" onchange="readURL(this);"><br>
 

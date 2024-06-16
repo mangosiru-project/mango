@@ -76,7 +76,7 @@ public class ShopEntity extends BaseEntity{
         shopEntity.setUpdatedTime(shopDTO.getUpdatedTime());
         shopEntity.setShopPass(shopDTO.getShopPass());
         shopEntity.setMemberName(shopDTO.getMemberName());  // 작성자 ID 설정
-
+        shopEntity.setFileAttached(1);//파일있음.
         return shopEntity;
     }
     public static ShopDTO toShopDTO(ShopEntity shopEntity) {

@@ -3,14 +3,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>update</title>
+    <title>내 정보 수정</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/update.css">
 </head>
 <body>
 <form action="/member/update" method="post">
     <input type="hidden" th:value="${updateMember.id}" name="id"><br>
-    아이디: <input type="text" th:value="${updateMember.memberName}" name="memberName"> <br>
-    비밀번호: <input type="text" th:value="${updateMember.memberPassword}" name="memberPassword"> <br>
-    이메일: <input type="text" th:value="${updateMember.memberEmail}" name="memberEmail" readonly> <br>
+    아이디 <input type="text" th:value="${updateMember.memberName}" name="memberName"> <br>
+    비밀번호 <input type="text" th:value="${updateMember.memberPassword}" name="memberPassword"> <br>
+    이메일 <input type="text" th:value="${updateMember.memberEmail}" name="memberEmail" readonly> <br>
     <input type="text" id="sample4_postcode" th:value="${updateMember.postCode}"name=postCode placeholder="우편번호">
     <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
     <input type="text" id="sample4_roadAddress" th:value="${updateMember.streetAdr}" name="streetAdr" placeholder="도로명주소">

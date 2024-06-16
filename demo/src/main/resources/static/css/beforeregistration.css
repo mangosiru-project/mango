@@ -162,15 +162,3 @@ button:hover {
     color: #f9f9f9;
 }
 
-footer {
-    background-color: #fcedb4;  /* 배경색을 연한 노란색으로 설정 */
-    color: #000000;  /* 텍스트 색상을 검은색으로 설정 */
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: auto;  /* 푸터를 페이지 하단에 고정 */
-}
-
-.footer-info {
-    margin: 5px 0;
-}

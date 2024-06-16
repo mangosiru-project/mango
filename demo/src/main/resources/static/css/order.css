@@ -45,22 +45,18 @@ header button {
     left: 20px;  /* 왼쪽 여백 */
 }
 
-header h2 {
-    margin: 0;
-    font-size: 30px;  /* 텍스트 크기 증가 */
-}
-
 #preview {
     width: 400px;  /* 사진 크기 증가 */
     height: 400px;  /* 사진 크기 증가 */
     margin-bottom: 15px;  /* 하단 여백 증가 */
-    border: 1px solid #ccc;
+    border: 1px solid #ffffff;
     object-fit: contain;  /* 사진이 잘리지 않도록 contain 설정 */
 }
 
 input[type="file"],
 input[type="date"],
 input[type="time"],
+input[type="tel"],
 textarea,
 input[type="button"],
 label {

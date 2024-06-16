@@ -21,6 +21,7 @@ function validateForm() {
     if (!fileInput.files.length || !dateInput.value || !timeInput.value || (!pickup1.checked && !pickup2.checked) || !descript.value.trim()) {
         alert('모두 작성해주세요!');
     } else {
-        location.href = '/orderCheck';
+        var form = document.getElementById("orderForm");
+        form.submit();
     }
 }

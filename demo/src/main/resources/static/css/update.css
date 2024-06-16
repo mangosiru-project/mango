@@ -72,6 +72,16 @@ label {
     width: 20%; /* 너비 설정 */
     height: calc(100% - 2px); /* 텍스트 입력 창과 같은 높이 */
     margin-left: 5px; /* 간격 추가 */
+    background-color: #fcedb4;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-group input[type="button"]:hover {
+    background-color: #ffd500;
+    color: white;
 }
 
 input[type="submit"] {

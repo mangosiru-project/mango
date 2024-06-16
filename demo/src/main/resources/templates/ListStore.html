@@ -49,22 +49,17 @@
 </section>
 
 <main>
-    <table>
-        <tr>
-            <!--<th>순서</th>-->
-            <th>가게이름</th>
-            <!--<th>가게소개</th>-->
-            <!--<th>가게위치</th>-->
-        </tr>
-        <tr th:each="shop: ${shopList}">
-            <!--<td th:text="${shop.id}"></td>-->
-            <td><a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}"></a></td>
-            <!--<td th:text="${shop.storeintro}"></td>-->
-            <!--<td th:text="${shop.streetAdr}"></td>-->
-        </tr>
-
-    </table>
+    <div class="store-container">
+        <div class="store-item" th:each="shop: ${shopList}">
+            <div th:each="fileName:${shop.storedFileName}">
+                <img th:src="@{'/upload/' + ${fileName}}" alt="Image">
+            </div>
+            <a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}"></a>
+        </div>
+    </div>
 </main>
+
+
 
 <footer>
     <p class="footer-info">Name: Make A Wish</p>

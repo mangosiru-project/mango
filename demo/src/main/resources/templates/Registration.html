@@ -18,16 +18,17 @@
             <span class="tooltiptext">로그아웃</span>
         </div>
     </div>
-    <h2>내 가게 등록</h2>
+    <h1>Make A Wish</h1>
     <nav class="banner">
         <a onclick="location.href='/shop/'">가게 목록</a>
-        <a onclick="location.href='/shop/manage'">가게 관리</a>
+        <a onclick="location.href='/shop/manage'" style="color: #f7c602">가게 관리</a>
         <a onclick="location.href='/community'">커뮤니티</a>
         <a onclick="location.href='/story'">스토리</a>
     </nav>
 </header>
 <main>
     <form action="/shop/save" method="post" enctype="multipart/form-data">
+        <h2>내 가게 등록</h2><br><br>
         <label for="storename">가게명</label>
         <input type="text" id="storename" name="storename">
         <label for="shopPass">비밀번호</label>

@@ -40,7 +40,7 @@ public class OrderEntity {
     @Column
     private int fileAttached;//1 or 0
 
-    @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<OrderFileEntity> orderFileEntityList = new ArrayList<>();  // 필드 이름을 일치시킴
 
 
@@ -67,6 +67,16 @@ public class OrderEntity {
         orderDTO.setReceiveTime(orderEntity.getReceiveTime());
         orderDTO.setReceiveDate(orderEntity.getReceiveDate());
         orderDTO.setFileAttached(orderEntity.getFileAttached());
+        if (orderEntity.getFileAttached() == 1) {
+            List<String> originalFileNameList = new ArrayList<>();
+            List<String> storedFileNameList = new ArrayList<>();
+            for (OrderFileEntity orderFileEntity : orderEntity.getOrderFileEntityList()) {
+                originalFileNameList.add(orderFileEntity.getOriginalFileName());
+                storedFileNameList.add(orderFileEntity.getStoredFileName());
+            }
+            orderDTO.setOriginalFilename(originalFileNameList);
+            orderDTO.setStoredFileName(storedFileNameList);
+        }
 
         return orderDTO;
 

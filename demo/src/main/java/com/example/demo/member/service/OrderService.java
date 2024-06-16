@@ -5,6 +5,7 @@ import com.example.demo.member.entity.OrderEntity;
 import com.example.demo.member.entity.OrderFileEntity;
 import com.example.demo.member.repository.OrderFileRepository;
 import com.example.demo.member.repository.OrderRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,6 +52,13 @@ public class OrderService {
 
     public List<OrderDTO> findOrdersByMemberName(String memberName) {
         List<OrderEntity> orders = orderRepository.findByMemberName(memberName);
+        return orders.stream()
+                .map(OrderEntity::toOrderDTO)
+                .collect(Collectors.toList());
+    }
+    @Transactional
+    public List<OrderDTO> findOrdersByStorename(String storename) {
+        List<OrderEntity> orders = orderRepository.findByStorename(storename);
         return orders.stream()
                 .map(OrderEntity::toOrderDTO)
                 .collect(Collectors.toList());

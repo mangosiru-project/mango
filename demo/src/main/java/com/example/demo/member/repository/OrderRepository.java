@@ -9,4 +9,5 @@ public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
     boolean existsByMemberName(String memberName);
 
     List<OrderEntity> findByMemberName(String memberName);
+    List<OrderEntity> findByStorename(String storename);
 }

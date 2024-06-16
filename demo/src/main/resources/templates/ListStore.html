@@ -51,8 +51,8 @@
 <main>
     <div class="store-container">
         <div class="store-item" th:each="shop: ${shopList}">
-            <div th:each="fileName:${shop.storedFileName}">
-                <img th:src="@{'/upload/' + ${fileName}}" alt="Image">
+            <div th:each="fileName, stat : ${shop.storedFileName}">
+                <img th:src="@{|/upload/${fileName}|}" th:if="${stat.index == 0}" alt="Image">
             </div>
             <a th:href="@{|/shop/${shop.id}|}" th:text="${shop.storename}"></a>
         </div>

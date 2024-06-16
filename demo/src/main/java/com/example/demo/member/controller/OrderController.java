@@ -29,7 +29,18 @@ public class OrderController {
         }
         model.addAttribute("shopList", shopDTOList);
     }
-
+    @GetMapping("/orderStatus")
+    public String ordersStatus(HttpSession session, Model model) {
+        String memberName = (String) session.getAttribute("loginName");
+        ShopDTO shopDTO = shopService.findByMemberName(memberName);
+        if (shopDTO != null) {
+            String storename = shopDTO.getStorename();
+            List<OrderDTO> orders = orderService.findOrdersByStorename(storename);
+            orders.forEach(order -> System.out.println("Order: " + order.getStorename() + ", File Attached: " + order.getFileAttached()));
+            model.addAttribute("orders", orders);
+        }
+        return "OrderStatus"; // 주문 현황을 보여줄 HTML 파일명
+    }
 
     @GetMapping("/save/new")
     public String orderSaveForm(@RequestParam("storename") String storename, Model model){

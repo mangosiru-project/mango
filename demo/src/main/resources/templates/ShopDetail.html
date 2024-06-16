@@ -27,9 +27,17 @@
     </nav>
 </header>
 <main>
-    <h2 th:text="${shop.storename}"></h2></br><!-- 동적으로 가게 이름 표시 -->
-    <div th:if="${shop.fileAttached==1}" class="shop-image">
-        <img th:each="fileName: ${shop.storedFileName}" th:src="@{'/upload/' + ${fileName}}" alt="Image">
+    <h2 th:text="${shop.storename}"></h2><br><!-- 동적으로 가게 이름 표시 -->
+    <div class="carousel-container" th:if="${shop.fileAttached==1}">
+        <div class="carousel">
+            <div th:each="fileName: ${shop.storedFileName}" class="carousel-item">
+                <img th:src="@{'/upload/' + ${fileName}}" alt="Image">
+            </div>
+        </div>
+        <div class="carousel-controls">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
     </div>
     <div class="shop-intro">
         <h3>소개</h3><br>
@@ -58,6 +66,31 @@
         const storename = /*[[${shop.storename}]]*/ '';
         location.href = '/order/save/new?storename=' + storename;
     }
+
+    let slideIndex = 0;
+    const showSlides = (index) => {
+        const slides = document.getElementsByClassName("carousel-item");
+        if (index >= slides.length) { slideIndex = 0; }
+        if (index < 0) { slideIndex = slides.length - 1; }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex].style.display = "block";
+    }
+
+    const nextSlide = () => {
+        slideIndex++;
+        showSlides(slideIndex);
+    }
+
+    const prevSlide = () => {
+        slideIndex--;
+        showSlides(slideIndex);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showSlides(slideIndex);
+    });
 </script>
 </body>
 </html>

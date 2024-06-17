@@ -32,13 +32,6 @@ main {
     text-align: center;
 }
 
-.button-container {
-    display: flex;
-    justify-content: flex-end;  /* 오른쪽 정렬 */
-    width: 100%;
-    padding: 10px;
-}
-
 .main-buttons {
     display: flex;
     flex-direction: column;
@@ -86,11 +79,16 @@ button:hover {
 }
 
 .board-table th.title, .board-table td.title {
-    width: 50%;
+    width: 40%;
 }
 
 .board-table th.date, .board-table td.date {
-    width: 30%;
+    width: 25%;
+}
+
+.board-table th.hits, .board-table td.hits {
+    width: 2%;
+    text-align: center;  /* 수평 가운데 정렬 */
 }
 
 .board-table td a {
@@ -102,27 +100,3 @@ button:hover {
     text-decoration: underline;
 }
 
-/* 페이징 스타일 */
-.pagination {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-}
-
-.pagination a {
-    color: black;
-    padding: 8px 16px;
-    text-decoration: none;
-    border: 1px solid #ddd;
-    margin: 0 4px;
-}
-
-.pagination a.active {
-    background-color: #4caf50;
-    color: white;
-    border: 1px solid #4caf50;
-}
-
-.pagination a:hover:not(.active) {
-    background-color: #ddd;
-}

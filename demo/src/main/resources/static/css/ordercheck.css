@@ -1,0 +1,70 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+main.order-check {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    width: 90%;
+    max-width: 800px;
+    flex: 1;
+    text-align: center;
+}
+
+main.order-check h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #333;
+}
+
+.order-images {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.order-images img {
+    display: flex;
+    justify-content: center; /* 이미지를 가운데 정렬 */
+    margin-bottom: 15px;
+}
+
+.no-file {
+    margin-bottom: 30px;
+}
+
+.no-file h3 {
+    margin-bottom: 30px;
+    font-size : 16px;
+}
+
+.order-details {
+    margin-bottom: 30px;
+}
+
+.order-details h3 {
+    margin-bottom : 30px;
+    font-size:16px;
+}

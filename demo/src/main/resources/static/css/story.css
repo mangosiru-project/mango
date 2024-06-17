@@ -45,10 +45,7 @@ body {
     width: 100%; /* 전체 너비 사용 */
 }
 
-h1, h2 {
-    text-align: center;  /* h1과 h2 텍스트를 중앙 정렬 */
-    margin: 20px 0; /* 텍스트 요소들 사이에 여백 추가 */
-}
+
 
 .splash-text {
     text-align: center;

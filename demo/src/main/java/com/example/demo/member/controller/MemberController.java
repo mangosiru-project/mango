@@ -58,7 +58,7 @@ public class MemberController {
         try {
             MemberDTO loginResult = memberService.login(memberDTO);
             session.setAttribute("loginName", loginResult.getMemberName());
-            return "redirect:/shop"; // 로그인 성공 시 리다이렉트
+            return "redirect:/shop/"; // 로그인 성공 시 리다이렉트
         } catch (Exception e) {
             model.addAttribute("errorMessage", e.getMessage());
             return "login";

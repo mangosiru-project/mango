@@ -49,11 +49,13 @@ public class OrderController {
     }
 
     @PostMapping("/save")
-    public String shopSave(@ModelAttribute OrderDTO orderDTO, HttpSession session, Model model) throws IOException {
+    public String orderSave(@ModelAttribute OrderDTO orderDTO, HttpSession session, Model model) throws IOException {
 
         String memberName = (String) session.getAttribute("loginName");
         orderDTO.setMemberName(memberName);
+        System.out.println("OrderDTO before saving: " + orderDTO); // 디버그 로그 추가
         OrderDTO savedOrder = orderService.orderSave(orderDTO); // 저장된 주문 정보 반환
+        System.out.println("Debug: Saved Order in Controller: " + savedOrder.getStoredFileName());
         session.setAttribute("recentOrder", savedOrder); // 최근 주문 저장
         return "redirect:/order/orderCheck";
     }
@@ -63,6 +65,9 @@ public class OrderController {
         List<OrderDTO> orders = orderService.findOrdersByMemberName(memberName);
 
         OrderDTO recentOrder = (OrderDTO) session.getAttribute("recentOrder");
+        if (recentOrder != null && recentOrder.getFileAttached() == 1) {
+            System.out.println("Debug: Recent Order Files: " + recentOrder.getStoredFileName());
+        }
         model.addAttribute("recentOrder", recentOrder);
 
         model.addAttribute("orders", orders);

@@ -29,13 +29,12 @@
 
 <main>
     <div class="left-column">
-        <img id="preview" alt="Image Preview">
-        <input type="file" id="fileInput" onchange="readURL(this);" name="orderFile" accept="image/*" multiple>
-    </div>
+            </div>
     <div class="right-column">
         <form action="/order/save" method="post" enctype="multipart/form-data" id="orderForm">
             <h1>주문하기</h1>
             <input type="hidden" name="storename" th:value="${storename}">
+
 
             <label>수령 날짜</label>
             <input type="date" name="receiveDate" id="dateInput"><br>
@@ -50,6 +49,9 @@
             </div>
             <label>문구 및 상세 설명</label><br>
             <textarea name="description" id="descript" rows="4"></textarea><br>
+
+            <img id="preview" alt="Image Preview">
+            <input type="file" id="fileInput" onchange="readURL(this);" name="orderFile" accept="image/*" multiple>
 
             <label for="phoneNumber">전화번호</label>
             <input type="tel" id="phoneNumber" name="phoneNumber"><br>

@@ -24,7 +24,7 @@ public class OrderDTO {
     private String receiveDate;
     private String receiveTime;
     private String phoneNumber;
-    private List<MultipartFile> orderFile = new ArrayList<>(); // 빈 리스트로 초기화;//가게저장.html-> conotroller 파일 담는 용도
+    private List<MultipartFile> orderFile; // 빈 리스트로 초기화;//가게저장.html-> conotroller 파일 담는 용도
     private List<String> originalFilename;//원본 파일 이름
     private List<String> storedFileName;//서버 저장용 파일 이름
     private int fileAttached;//파일 첨부여부(첨부1,미첨부 0)

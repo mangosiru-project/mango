@@ -22,7 +22,7 @@
     <nav class="banner">
         <a onclick="location.href='/shop/'">가게 목록</a>
         <a onclick="location.href='/shop/manage'">가게 관리</a>
-        <a onclick="location.href='/community'">커뮤니티</a>
+        <a onclick="location.href='/board/'">커뮤니티</a>
         <a onclick="location.href='/story'">스토리</a>
     </nav>
 </header>
@@ -30,7 +30,9 @@
     <div th:if="${recentOrder != null}">
         <h2>주문내역</h2>
         <div th:if="${recentOrder.fileAttached == 1}" class="order-images">
+
             <div th:each="fileName : ${recentOrder.storedFileName}">
+
                 <img th:src="@{'/upload/' + ${fileName}}" alt="Image">
             </div>
         </div>

@@ -72,15 +72,17 @@ public class OrderEntity {
         orderDTO.setReceiveDate(orderEntity.getReceiveDate());
         orderDTO.setPhoneNumber(orderEntity.getPhoneNumber());
         orderDTO.setFileAttached(orderEntity.getFileAttached());
+        List<String> originalFileNameList = new ArrayList<>();
+        List<String> storedFileNameList = new ArrayList<>();
         if (orderEntity.getFileAttached() == 1) {
-            List<String> originalFileNameList = new ArrayList<>();
-            List<String> storedFileNameList = new ArrayList<>();
+
             for (OrderFileEntity orderFileEntity : orderEntity.getOrderFileEntityList()) {
                 originalFileNameList.add(orderFileEntity.getOriginalFileName());
                 storedFileNameList.add(orderFileEntity.getStoredFileName());
             }
             orderDTO.setOriginalFilename(originalFileNameList);
             orderDTO.setStoredFileName(storedFileNameList);
+            System.out.println("Debug: Setting file names in DTO: " + storedFileNameList); // 디버그 출력 추가
         }
 
         return orderDTO;

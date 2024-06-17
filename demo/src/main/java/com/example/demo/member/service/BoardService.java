@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,7 @@ public class BoardService {
         for (BoardEntity boardEntity : boardEntityList) {
             boardDTOList.add(BoardDTO.toBoardDTO(boardEntity));
         }
+        Collections.reverse(boardDTOList);  // 역순으로 정렬
         return boardDTOList;
     }
 

@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     margin: 0;
 }
 
@@ -23,14 +23,20 @@ main {
     align-items: center;
     justify-content: center;  /* 수직 및 수평 가운데 정렬 */
     background: white;
-    padding: 20px;  /* 패딩 감소 */
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px 0; /* 위아래 마진 추가 */
-    width: 90%;
-    max-width: 800px;  /* 최대 너비 설정 */
+    margin: 20px 0;
+    width: 100%;  /* 최대 너비 설정 */
+    max-width: 1200px;  /* 최대 너비 증가 */
     flex: 1;
     text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;  /* 오른쪽 정렬 */
+    width: 100%;
+    padding: 10px;
 }
 
 .main-buttons {
@@ -43,15 +49,80 @@ button {
     background-color: #fcedb4;
     color: #000000;
     border: none;
-    padding: 20px;  /* 패딩 증가 */
+    padding: 20px;
     border-radius: 5px;
     cursor: pointer;
-    margin: 15px;  /* 버튼 간의 간격 증가 */
-    width: 240px;  /* 너비 증가 */
-    font-size: 16px;  /* 글자 크기 증가 */
+    margin: 15px;
+    width: 240px;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #ffd500;
     color: white;
+}
+
+/* 테이블 스타일 */
+.board-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.board-table th, .board-table td {
+    padding: 15px 30px;  /* 여백 증가 */
+    border: 1px solid #5a5a5a;
+    text-align: left;
+}
+
+.board-table th {
+    background-color: #fcedb4;
+    color: #5a5a5a;
+    font-weight: 70;
+}
+
+.board-table th.writer, .board-table td.writer {
+    width: 20%;
+}
+
+.board-table th.title, .board-table td.title {
+    width: 50%;
+}
+
+.board-table th.date, .board-table td.date {
+    width: 30%;
+}
+
+.board-table td a {
+    text-decoration: none;
+    color: #333;
+}
+
+.board-table td a:hover {
+    text-decoration: underline;
+}
+
+/* 페이징 스타일 */
+.pagination {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+}
+
+.pagination a.active {
+    background-color: #4caf50;
+    color: white;
+    border: 1px solid #4caf50;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
 }

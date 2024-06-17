@@ -11,7 +11,6 @@ body, h1, h2, h3, h4, h5, h6, p, button, input, textarea, label {
     font-weight: 70;  /* 폰트 두께 설정 */
 }
 
-
 header {
     display: flex;
     flex-direction: column;
@@ -99,7 +98,7 @@ nav.banner a:hover, nav.banner a.active {
 
 footer {
     background-color: #fcedb4;
-    color: #888888;
+    color: #000000;
     padding: 20px;
     text-align: center;
     width: 100%;

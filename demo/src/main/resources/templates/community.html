@@ -22,7 +22,7 @@
     <nav class="banner">
         <a onclick="location.href='/shop/'">가게 목록</a>
         <a onclick="location.href='/shop/manage'">가게 관리</a>
-        <a onclick="location.href='/community'" style="color: #f7c602">커뮤니티</a>
+        <a onclick="location.href='/board/'" style="color: #f7c602">커뮤니티</a>
         <a onclick="location.href='/story'">스토리</a>
     </nav>
 </header>
@@ -30,24 +30,22 @@
 <main>
     <button onclick="location.href='/board/save'">글 작성하기</button>
 
-    <table>
+    <table class="board-table">
         <tr>
-            <!--<th>id</th>-->
-            <th>제목</th>
-            <!--<th>title(||쓰지 않은 경우)</th>-->
             <th>작성자</th>
+            <th>제목</th>
             <th>날짜</th>
             <th>조회수</th>
         </tr>
-        <tr th:each="board: ${boardList}">
-            <!--<td th:text="${board.id}"></td>-->
-            <td><a th:href="@{|/board/${board.id}|}" th:text="${board.boardTitle}"></a></td>
-            <!--<td><a th:href="@{/board/${board.id}}" th:text="${board.boardTitle}"></a></td>-->
-            <td th:text="${board.boardWriter}"></td>
-            <td th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd')}"></td>
-            <td th:text="${board.boardHits}"></td>
+        <tr th:each="board : ${boardList}">
+            <td class="writer" th:text="${board.boardWriter}"></td>
+            <td class="title"><a th:href="@{|/board/${board.id}|}" th:text="${board.boardTitle}"></a></td>
+            <td class="date" th:text="${#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd HH:mm')}"></td>
+            <<td th:text="${board.boardHits}"></td>
         </tr>
     </table>
+
+
 </main>
 
 <footer>

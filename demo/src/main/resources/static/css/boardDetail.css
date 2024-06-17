@@ -1,0 +1,93 @@
+/* Existing CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    width: 90%; /* Increased from max-width: 800px */
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    position: relative;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #ffffff;
+    color: #575656;
+    font-weight: 70;
+}
+
+button {
+    background-color: #fcedb4;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #ffd500;
+    color: white;
+}
+
+/* New CSS */
+#list-button {
+    margin-bottom: 20px; /* Adding margin to place it between header and table */
+}
+
+#comment-write {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0; /* Adding some margin for better spacing */
+}
+
+#comment-write input[type="text"] {
+    width: 20%;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#comment-write button {
+    margin-left: 10px;
+    padding: 10px 20px;
+}
+
+#comment-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#comment-list table {
+    width: 100%;
+}

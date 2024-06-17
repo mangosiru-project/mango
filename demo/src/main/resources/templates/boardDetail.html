@@ -3,69 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <!-- jquery cdn -->
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/boardDetail.css">
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 <body>
-<table>
-    <tr>
-        <th>id</th>
-        <td th:text="${board.id}"></td>
-    </tr>
-    <tr>
-        <th>title</th>
-        <td th:text="${board.boardTitle}"></td>
-    </tr>
-    <tr>
-        <th>writer</th>
-        <td th:text="${board.boardWriter}"></td>
-    </tr>
-    <tr>
-        <th>date</th>
-        <td th:text="${board.boardCreatedTime}"></td>
-    </tr>
-    <tr>
-        <th>hits</th>
-        <td th:text="${board.boardHits}"></td>
-    </tr>
-    <tr>
-        <th>contents</th>
-        <td th:text="${board.boardContents}"></td>
-    </tr>
-    <tr th:if="${board.fileAttached == 1}">
-        <th>image</th>
-        <td><img th:src="@{|/upload/${board.storedFileName}|}" alt=""></td>
-    </tr>
-</table>
-<button onclick="listReq()">목록</button>
-<button onclick="updateReq()">수정</button>
-<button onclick="deleteReq()">삭제</button>
-
-<!-- 댓글 작성 부분 -->
-<div id="comment-write">
-    <input type="text" id="commentWriter" placeholder="작성자">
-    <input type="text" id="commentContents" placeholder="내용">
-    <button id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
-</div>
-
-<!-- 댓글 출력 부분 -->
-<div id="comment-list">
+<header>
+    <div class="top-right-buttons">
+        <div class="tooltip">
+            <img src="/image/information.png" onclick="location.href='/member/update'" id="info" alt="내정보수정">
+            <span class="tooltiptext">내정보수정</span>
+        </div>
+        <div class="tooltip">
+            <img src="/image/logout.png" onclick="location.href='/member/logout'" id="logout" alt="로그아웃">
+            <span class="tooltiptext">로그아웃</span>
+        </div>
+    </div>
+    <h2>Make A Wish</h2>
+    <nav class="banner">
+        <a onclick="location.href='/shop/'">가게 목록</a>
+        <a onclick="location.href='/shop/manage'">가게 관리</a>
+        <a onclick="location.href='/board/'" style="color: #f7c602">커뮤니티</a>
+        <a onclick="location.href='/story'">스토리</a>
+    </nav>
+</header>
+<main>
+    <button id="list-button" onclick="listReq()">목록</button>
     <table>
         <tr>
-            <th>댓글번호</th>
-            <th>작성자</th>
-            <th>내용</th>
-            <th>작성시간</th>
+            <th>제목</th>
+            <td th:text="${board.boardTitle}"></td>
         </tr>
-        <tr th:each="comment: ${commentList}">
-            <td th:text="${comment.id}"></td>
-            <td th:text="${comment.commentWriter}"></td>
-            <td th:text="${comment.commentContents}"></td>
-            <td th:text="${comment.commentCreatedTime}"></td>
+        <tr>
+            <th>작성자</th>
+            <td th:text="${board.boardWriter}"></td>
+        </tr>
+        <tr>
+            <th>날짜</th>
+            <td th:text="${board.boardCreatedTime}"></td>
+        </tr>
+        <tr>
+            <th>조회수</th>
+            <td th:text="${board.boardHits}"></td>
+        </tr>
+        <tr>
+            <th>내용</th>
+            <td th:text="${board.boardContents}"></td>
         </tr>
     </table>
-</div>
 
+    <!-- 댓글 작성 부분 -->
+    <div id="comment-write">
+        <input type="text" id="commentWriter" placeholder="닉네임">
+        <input type="text" id="commentContents" placeholder="내용">
+        <button id="comment-write-btn" onclick="commentWrite()">댓글작성</button>
+    </div>
+
+    <!-- 댓글 출력 부분 -->
+    <div id="comment-list">
+        <table>
+            <tr>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성시간</th>
+            </tr>
+            <tr th:each="comment: ${commentList}">
+                <td th:text="${comment.commentWriter}"></td>
+                <td th:text="${comment.commentContents}"></td>
+                <td th:text="${comment.commentCreatedTime}"></td>
+            </tr>
+        </table>
+    </div>
+</main>
+
+<footer>
+    <p class="footer-info">Name: Make A Wish</p>
+    <p class="footer-info">Team: MangoSiru</p>
+    <p class="footer-info">Email: mangosiru@cbnu.ac.kr</p>
+    <p class="footer-info">Address: 1 Chungdae-ro, Seowon-gu, Cheongju, Chungbuk National University</p>
+</footer>
 </body>
 
 <script th:inline="javascript">
@@ -75,6 +91,20 @@
         console.log("작성자: ", writer);
         console.log("내용: ", contents);
         const id = [[${board.id}]];
+
+        // Display the comment locally first
+        let commentListDiv = document.getElementById('comment-list');
+        let output = commentListDiv.innerHTML;
+        output += "<tr>";
+        output += "<td>" + writer + "</td>";
+        output += "<td>" + contents + "</td>";
+        output += "</tr>";
+        commentListDiv.innerHTML = output;
+
+        // Clear the input fields
+        document.getElementById('commentWriter').value = '';
+        document.getElementById('commentContents').value = '';
+
         $.ajax({
             // 요청방식: post, 요청주소: /comment/save, 요청데이터: 작성자, 작성내용, 게시글번호
             type: "post",
@@ -87,13 +117,11 @@
             success: function (res) {
                 console.log("요청성공", res);
                 let output = "<table>";
-                output += "<tr><th>댓글번호</th>";
-                output += "<th>작성자</th>";
+                output += "<th>닉네임</th>";
                 output += "<th>내용</th>";
                 output += "<th>작성시간</th></tr>";
                 for (let i in res) {
                     output += "<tr>";
-                    output += "<td>" + res[i].id + "</td>";
                     output += "<td>" + res[i].commentWriter + "</td>";
                     output += "<td>" + res[i].commentContents + "</td>";
                     output += "<td>" + res[i].commentCreatedTime + "</td>";
@@ -101,29 +129,21 @@
                 }
                 output += "</table>";
                 document.getElementById('comment-list').innerHTML = output;
-                document.getElementById('commentWriter').value = '';
-                document.getElementById('commentContents').value = '';
             },
             error: function (err) {
                 console.log("요청실패", err);
+                // Optionally, update the last comment to indicate failure to save
+                let rows = document.getElementById('comment-list').getElementsByTagName('tr');
+                let lastRow = rows[rows.length - 1];
+                lastRow.getElementsByTagName('td')[2].innerText = '저장 실패';
             }
         });
-
     }
     const listReq = () => {
         console.log("목록 요청");
         const page = [[${page}]];
-        location.href = "/board/paging?page="+page;
-    }
-    const updateReq = () => {
-        console.log("수정 요청");
-        const id = [[${board.id}]];
-        location.href = "/board/update/" + id;
-    }
-    const deleteReq = () => {
-        console.log("삭제 요청");
-        const id = [[${board.id}]];
-        location.href = "/board/delete/" + id;
+        location.href = "/board/";
     }
 </script>
+
 </html>

@@ -1,3 +1,4 @@
+/* Existing CSS */
 * {
     margin: 0;
     padding: 0;
@@ -12,14 +13,13 @@ body {
     align-items: center;
 }
 
-
 main {
-    width: 100%;
-    max-width: 800px;
+    width: 90%; /* Increased from max-width: 800px */
     margin: 20px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
+    position: relative;
 }
 
 table {
@@ -56,3 +56,38 @@ button:hover {
     color: white;
 }
 
+/* New CSS */
+#list-button {
+    margin-bottom: 20px; /* Adding margin to place it between header and table */
+}
+
+#comment-write {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 20px 0; /* Adding some margin for better spacing */
+}
+
+#comment-write input[type="text"] {
+    width: 20%;
+    padding: 10px;
+    margin: 0 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#comment-write button {
+    margin-left: 10px;
+    padding: 10px 20px;
+}
+
+#comment-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#comment-list table {
+    width: 100%;
+}

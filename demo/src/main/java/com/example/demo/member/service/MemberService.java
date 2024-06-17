@@ -12,6 +12,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberService {
     private final MemberRepository memberRepository;
+
+    public boolean isMemberNameTaken(String memberName) {
+        return memberRepository.findByMemberName(memberName).isPresent();
+    }
     public void save(MemberDTO memberDTO) {
         //1.dto->entity변환
         //2.repository의 save메서드 호출
@@ -20,7 +24,7 @@ public class MemberService {
         //repository의 save메서드 호출(조건. entity객체를 넘겨줘야함)
     }
 
-    public MemberDTO login(MemberDTO memberDTO) {
+    public MemberDTO login(MemberDTO memberDTO) throws Exception {
         /*
             1. 회원이 입력한 이메일로 DB에서 조회를 함
             2. DB에서 조회한 비밀번호와 사용자가 입력한 비밀번호가 일치하는지 판단
@@ -36,13 +40,13 @@ public class MemberService {
                 return dto;
             }
             else{
-                return null;
+                throw new Exception("잘못된 비밀번호입니다.");
             }
 
         }
         else{
             //조회 결과가 없다(해당 이메일을 가진 회원이 없다
-            return null;
+            throw new Exception("존재하지 않는 아이디입니다.");
         }
     }
     public MemberDTO updateForm(String myName){

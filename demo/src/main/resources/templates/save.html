@@ -51,6 +51,9 @@
             </div>
             <span id="guide" style="color:#999; display:none"></span>
             <input type="submit" value="회원가입">
+            <div th:if="${errorMessage != null}">
+                <p th:text="${errorMessage}" style="color: red;"></p>
+            </div>
         </form>
 
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

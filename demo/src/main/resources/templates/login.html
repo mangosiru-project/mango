@@ -24,6 +24,9 @@
                 <input type="password" id="memberPassword" name="memberPassword">
             </div>
             <input type="submit" value="로그인">
+            <div th:if="${errorMessage != null}">
+                <p th:text="${errorMessage}" style="color: red;"></p>
+            </div>
         </form>
     </div>
 </div>

@@ -28,12 +28,16 @@ public class MemberController {
     }
 
     @PostMapping("/member/save")
-    public String save(@ModelAttribute MemberDTO memberDTO){
+    public String save(@ModelAttribute MemberDTO memberDTO, Model model){
         System.out.println("MemberController.save");
         System.out.println("memberDTO = " + memberDTO);
-        memberService.save(memberDTO);
+        if (memberService.isMemberNameTaken(memberDTO.getMemberName())) {
+            model.addAttribute("errorMessage", "이미 사용 중인 아이디입니다.");
+            return "save";
 
-        return "login";
+        }
+        memberService.save(memberDTO);
+        return "redirect:/member/login";
     }
     private void addCommonAttributes(Model model) {
         List<ShopDTO> shopDTOList;
@@ -51,16 +55,12 @@ public class MemberController {
     }
     @PostMapping("/member/login")
     public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model){
-        MemberDTO loginResult = memberService.login(memberDTO);
-        if(loginResult!=null){
-            //login 성공
+        try {
+            MemberDTO loginResult = memberService.login(memberDTO);
             session.setAttribute("loginName", loginResult.getMemberName());
-            addCommonAttributes(model);
-            return "ListStore";
-
-        }
-        else {
-            //login 실패
+            return "redirect:/shop"; // 로그인 성공 시 리다이렉트
+        } catch (Exception e) {
+            model.addAttribute("errorMessage", e.getMessage());
             return "login";
         }
     }

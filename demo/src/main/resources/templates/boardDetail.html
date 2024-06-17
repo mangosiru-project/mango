@@ -7,6 +7,26 @@
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 <body>
+<header>
+    <div class="top-right-buttons">
+        <div class="tooltip">
+            <img src="/image/information.png" onclick="location.href='/member/update'" id="info" alt="내정보수정">
+            <span class="tooltiptext">내정보수정</span>
+        </div>
+        <div class="tooltip">
+            <img src="/image/logout.png" onclick="location.href='/member/logout'" id="logout" alt="로그아웃">
+            <span class="tooltiptext">로그아웃</span>
+        </div>
+    </div>
+    <h2>Make A Wish</h2>
+    <nav class="banner">
+        <a onclick="location.href='/shop/'">가게 목록</a>
+        <a onclick="location.href='/shop/manage'">가게 관리</a>
+        <a onclick="location.href='/board'" style="color: #f7c602">커뮤니티</a>
+        <a onclick="location.href='/story'">스토리</a>
+    </nav>
+</header>
+
 <table>
     <tr>
         <th>id</th>
@@ -65,6 +85,13 @@
         </tr>
     </table>
 </div>
+
+<footer>
+    <p class="footer-info">Name: Make A Wish</p>
+    <p class="footer-info">Team: MangoSiru</p>
+    <p class="footer-info">Email: mangosiru@cbnu.ac.kr</p>
+    <p class="footer-info">Address: 1 Chungdae-ro, Seowon-gu, Cheongju, Chungbuk National University</p>
+</footer>
 
 </body>
 

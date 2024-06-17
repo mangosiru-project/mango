@@ -95,7 +95,7 @@ public class ShopController {
         shopDTO.setMemberName(memberName);  // 세션에서 가져온 memberName을 설정
         ShopDTO shop = shopService.update(shopDTO);
         model.addAttribute("shop",shop);
-        return "ShopDetail";
+        return "MyManagement";
 
     }
 }

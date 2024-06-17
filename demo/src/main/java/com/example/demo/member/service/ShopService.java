@@ -22,6 +22,7 @@ public class ShopService {
     private final ShopRepository shopRepository;
     private final ShopFileRepository shopFileRepository;
 
+    @Transactional
     public ShopDTO update(ShopDTO shopDTO) {
         ShopEntity shopEntity=ShopEntity.toupdateEntity(shopDTO);
         shopRepository.save(shopEntity);

@@ -30,21 +30,20 @@
 <main>
     <button onclick="location.href='/board/save'">글 작성하기</button>
 
+    <!-- 디버그: boardList 내용을 출력 -->
+    <div>[[${boardList}]]</div>
+
     <table>
         <tr>
-            <!--<th>id</th>-->
             <th>제목</th>
-            <!--<th>title(||쓰지 않은 경우)</th>-->
             <th>작성자</th>
             <th>날짜</th>
             <th>조회수</th>
         </tr>
-        <tr th:each="board: ${boardList}">
-            <!--<td th:text="${board.id}"></td>-->
+        <tr th:each="board : ${boardList}">
             <td><a th:href="@{|/board/${board.id}|}" th:text="${board.boardTitle}"></a></td>
-            <!--<td><a th:href="@{/board/${board.id}}" th:text="${board.boardTitle}"></a></td>-->
             <td th:text="${board.boardWriter}"></td>
-            <td th:text="*{#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd')}"></td>
+            <td th:text="${#temporals.format(board.boardCreatedTime, 'yyyy-MM-dd')}"></td>
             <td th:text="${board.boardHits}"></td>
         </tr>
     </table>

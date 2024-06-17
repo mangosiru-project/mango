@@ -42,6 +42,7 @@ public class ShopController {
 
         return "ListStore";
     }
+
     private void addCommonAttributes(Model model) {
         List<ShopDTO> shopDTOList = shopService.findAll();
         if (shopDTOList == null) {

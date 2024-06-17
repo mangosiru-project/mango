@@ -42,29 +42,40 @@ h2 {
 .order-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
+    background-color: #fcedb4; /* Yellow background color */
+    width: 100%; /* Ensure the container takes the full width */
 }
 
 .order-container h3 {
-    margin: 0;
-    font-size: 16px;
+    margin: 10px 0; /* Added margin for better spacing */
+    font-size: 18px; /* Increased font size for better readability */
 }
 
 .order-images {
     display: flex;
-    justify-content: center; /* 이미지를 가운데 정렬 */
+    justify-content: center; /* Center the images */
     margin-bottom: 15px;
+    flex-wrap: wrap; /* Allow images to wrap to the next line if necessary */
 }
 
 .order-container img {
     border-radius: 5px;
-    margin: 0 auto; /* 이미지를 가운데 정렬 */
+    margin: 5px; /* Added margin around images */
+    width: 500px; /* Increased width */
+    height: 500px; /* Increased height */
+    object-fit: cover;
 }
 
-/* 추가된 간격 설정 */
+.order-details {
+    text-align: left; /* Align text to the left for better readability */
+    width: 100%;
+}
+
+/* Additional spacing settings */
 .order-container h3, .order-container img, .order-images {
     margin-bottom: 30px;
 }

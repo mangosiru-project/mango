@@ -42,6 +42,12 @@ public class ShopController {
 
         return "ListStore";
     }
+    @GetMapping("/details")
+    public String shopDetails(@RequestParam("id") Long id, Model model) {
+        ShopDTO shopDTO = shopService.findById(id);
+        model.addAttribute("shop", shopDTO);
+        return "ShopDetail";
+    }
 
     private void addCommonAttributes(Model model) {
         List<ShopDTO> shopDTOList = shopService.findAll();

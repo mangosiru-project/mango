@@ -29,16 +29,21 @@
 
 <main>
     <div class="left-column">
-            </div>
+        <!-- Empty left column, can be used for something else or kept for symmetry -->
+    </div>
     <div class="right-column">
         <form action="/order/save" method="post" enctype="multipart/form-data" id="orderForm">
             <h1>주문하기</h1>
             <input type="hidden" name="storename" th:value="${storename}">
 
+            <!-- Move the image upload and preview to the top -->
+            <label for="fileInput">사진 업로드</label>
+            <input type="file" id="fileInput" onchange="readURL(this);" name="orderFile" accept="image/*" multiple>
+            <img id="preview" alt="Image Preview"><br>
 
-            <label>수령 날짜</label>
+            <label for="dateInput">수령 날짜</label>
             <input type="date" name="receiveDate" id="dateInput"><br>
-            <label>수령 시간</label>
+            <label for="timeInput">수령 시간</label>
             <input type="time" id="timeInput" name="receiveTime"><br>
             <label>수령 방법</label>
             <div class="pickup-method">
@@ -47,16 +52,13 @@
                 <input type="radio" name="pickupMethod" id="pickup2" value="배달">
                 <label for="pickup2">배달</label>
             </div>
-            <label>문구 및 상세 설명</label><br>
+            <label for="descript">문구 및 상세 설명</label><br>
             <textarea name="description" id="descript" rows="4"></textarea><br>
-
-            <img id="preview" alt="Image Preview">
-            <input type="file" id="fileInput" onchange="readURL(this);" name="orderFile" accept="image/*" multiple>
 
             <label for="phoneNumber">전화번호</label>
             <input type="tel" id="phoneNumber" name="phoneNumber"><br>
 
-            <input type="button" value="주문하기" onclick="validateForm()">
+            <input type="button" value="주문하기" onclick="validateForm()" class="submit-button">
         </form>
     </div>
 </main>

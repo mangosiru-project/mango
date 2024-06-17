@@ -29,7 +29,7 @@
 
 <main class="order-check">
     <div th:if="${recentOrder != null}">
-        <h2>주문내역</h2>
+        <h2>주문확인</h2>
         <div th:if="${recentOrder.fileAttached == 1}" class="order-images">
 
             <div th:each="fileName : ${recentOrder.storedFileName}">

@@ -23,7 +23,7 @@ public class OrderService {
 
     public OrderDTO orderSave(OrderDTO orderDTO) throws IOException {
         OrderEntity orderEntity = OrderEntity.toSaveFileEntity(orderDTO);
-        if (orderDTO.getOrderFile().isEmpty()) {
+        if (orderDTO.getOrderFile() == null || orderDTO.getOrderFile().isEmpty()) {
             orderRepository.save(orderEntity);
         }
         else{
